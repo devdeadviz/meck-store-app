@@ -1,0 +1,20 @@
+.btn-dark:hover {
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.social-icons-wrapper {
+  text-decoration: none;
+}
+
+.social-icons-wrapper > i {
+  display: block;
+}
+
+.icon-count-sm {
+  top: 1rem;
+  left: 2.8rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 900;
+}

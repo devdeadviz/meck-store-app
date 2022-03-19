@@ -25,13 +25,13 @@ const Navbar = () => {
               <li>
                 <a className="social-icons-wrapper pos-rel" href="#">
                   <i className="fas fa-heart"></i>
-                  <span className="badge-count icon-count-sm">8</span>
+                  <span className="badge-count icon-count-sm">0</span>
                 </a>
               </li>
               <li>
                 <a className="social-icons-wrapper pos-rel" href="#">
                   <i className="fas fa-shopping-cart"></i>
-                  <span className="badge-count icon-count-sm">8</span>
+                  <span className="badge-count icon-count-sm">0</span>
                 </a>
               </li>
             </ul>

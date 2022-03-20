@@ -7,27 +7,18 @@ import {
   Navbar,
   UpcomingsCard,
 } from "../../components";
+import { useProducts } from "../../contexts/products-context";
 
 const Homepage = () => {
+  const { products: upcomingProducts } = useProducts();
+
   const [productCategories, setProductCategories] = useState([]);
-  const [upcomingProducts, setUpcomingProducts] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
         const productData = await axios.get("/api/categories");
         setProductCategories(productData.data.categories);
-      } catch (error) {
-        console.error(error.message);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const upcomingProductData = await axios.get("/api/products");
-        setUpcomingProducts(upcomingProductData.data.products);
       } catch (error) {
         console.error(error.message);
       }

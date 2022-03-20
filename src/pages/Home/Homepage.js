@@ -1,16 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CategoriesCard, Navbar } from "../../components";
+import { CategoriesCard, Navbar, UpcomingsCard } from "../../components";
 import "./Homepage.css";
 
 const Homepage = () => {
   const [productCategories, setProductCategories] = useState([]);
+  const [upcomingProducts, setUpcomingProducts] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
         const productData = await axios.get("/api/categories");
         setProductCategories(productData.data.categories);
+      } catch (error) {
+        console.error(error.message);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const upcomingProductData = await axios.get("/api/products");
+        setUpcomingProducts(upcomingProductData.data.products);
       } catch (error) {
         console.error(error.message);
       }
@@ -42,6 +54,21 @@ const Homepage = () => {
         {productCategories.map(({ categoryName, _id, image }) => (
           <CategoriesCard key={_id} categoryName={categoryName} image={image} />
         ))}
+      </div>
+      <h1 class="store-heading text-center">UPCOMINGS</h1>
+      <div class="store-cards-wrapper flex flexWrap flexJustifyAround m-5">
+        {upcomingProducts.map(
+          ({ _id, title, subTitle, price, image, upcoming }) =>
+            upcoming && (
+              <UpcomingsCard
+                key={_id}
+                title={title}
+                subTitle={subTitle}
+                price={price}
+                image={image}
+              />
+            )
+        )}
       </div>
     </div>
   );

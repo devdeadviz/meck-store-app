@@ -1,3 +1,5 @@
+import "./UpcomingsCard.css";
+
 const UpcomingsCard = ({ title, subTitle, price, image }) => {
   return (
     <div class="horizontal-card-wrapper flex m-5">

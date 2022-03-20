@@ -1,7 +1,12 @@
+import "./Homepage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CategoriesCard, Navbar, UpcomingsCard } from "../../components";
-import "./Homepage.css";
+import {
+  CategoriesCard,
+  Footer,
+  Navbar,
+  UpcomingsCard,
+} from "../../components";
 
 const Homepage = () => {
   const [productCategories, setProductCategories] = useState([]);
@@ -70,6 +75,7 @@ const Homepage = () => {
             )
         )}
       </div>
+      <Footer />
     </div>
   );
 };

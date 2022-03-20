@@ -1,0 +1,15 @@
+.horizontal-card-wrapper {
+  box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+  height: fit-content;
+  transition: 0.4s ease-in;
+}
+
+.horizontal-card-wrapper:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.wishlist-btn {
+  width: 15rem;
+}

@@ -8,6 +8,7 @@ import {
   UpcomingsCard,
 } from "../../components";
 import { useProducts } from "../../contexts/products-context";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   const { products: upcomingProducts } = useProducts();
@@ -48,7 +49,13 @@ const Homepage = () => {
       </h1>
       <div class="store-cards-wrapper flex flexWrap flexJustifyCenter m-5">
         {productCategories.map(({ categoryName, _id, image }) => (
-          <CategoriesCard key={_id} categoryName={categoryName} image={image} />
+          <Link className="link" to="/products">
+            <CategoriesCard
+              key={_id}
+              categoryName={categoryName}
+              image={image}
+            />
+          </Link>
         ))}
       </div>
       <h1 class="store-heading text-center">UPCOMINGS</h1>

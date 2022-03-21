@@ -1,0 +1,26 @@
+/* filter styles */
+
+.store-filter {
+  border-right: 2px solid var(--primary-color);
+  flex-basis: 45rem;
+  padding: 2.2rem;
+}
+
+.clear-btn {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.clear-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.filter-slider {
+  width: 100%;
+}
+
+.fieldset {
+  border: none;
+}

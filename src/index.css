@@ -16,3 +16,8 @@ code {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.link {
+  text-decoration: none;
+  color: var(--primary-color);
+}

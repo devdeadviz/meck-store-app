@@ -19,7 +19,7 @@ export const products = [
     _id: uuid(),
     title: "Keychron K2",
     subTitle: "(HOT-SWAPPABLE)",
-    price: "Rs. 7,699.00",
+    price: 7699,
     categoryName: "Compact Keyboards",
     image:
       "https://www.meckeys.com/wp-content/uploads/2021/08/K2%E5%8F%AF%E6%8F%92%E6%8B%94%E9%93%9D%E5%90%88%E9%87%91-min-262x175.jpg",
@@ -29,7 +29,7 @@ export const products = [
     _id: uuid(),
     title: "Keychron K2",
     subTitle: "",
-    price: "Rs. 7,199.00",
+    price: 7199,
     categoryName: "Compact Keyboards",
     image:
       "https://www.meckeys.com/wp-content/uploads/2021/03/K2-ALUM_RGB-262x175.jpeg",
@@ -38,7 +38,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Cyber Moon Keyboard",
-    price: "Rs. 26,296.63",
+    price: 26296,
     categoryName: "Short Keyboards",
     image: image1,
     upcoming: false,
@@ -46,7 +46,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Hot-Swappable Keyboard",
-    price: "Rs. 25,296.63",
+    price: 25296,
     categoryName: "Custom Keyboards",
     image: image2,
     upcoming: false,
@@ -54,7 +54,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Keychron K2 Keyboard",
-    price: "Rs. 8,299.00",
+    price: 8299,
     categoryName: "Compact Keyboards",
     image: image3,
     upcoming: false,
@@ -62,7 +62,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Purple Midnight Keyboard",
-    price: "Rs. 20,199.00",
+    price: 20199,
     categoryName: "Short Keyboards",
     image: image4,
     upcoming: false,
@@ -70,7 +70,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Mechanical Keyboards",
-    price: "Rs. 18,999.99",
+    price: 18999,
     categoryName: "Compact Keyboards",
     image: image5,
     upcoming: false,
@@ -78,7 +78,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Preonic Keyboard MX Kit",
-    price: "Rs. 25,499.00",
+    price: 25499,
     categoryName: "Custom Keyboards",
     image: image6,
     upcoming: false,
@@ -86,7 +86,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Islay Night Keyboard",
-    price: "Rs. 28,599.00",
+    price: 28599,
     categoryName: "Custom Keyboards",
     image: image7,
     upcoming: false,
@@ -94,7 +94,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Zodiac Keyboard",
-    price: "Rs. 26,999.00",
+    price: 26999,
     categoryName: "Short Keyboards",
     image: image8,
     upcoming: false,
@@ -102,7 +102,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Split Keyboard",
-    price: "Rs. 26,296.63",
+    price: 26296,
     categoryName: "Split Keyboards",
     image: image9,
     upcoming: false,

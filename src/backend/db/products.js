@@ -1,4 +1,13 @@
 import { v4 as uuid } from "uuid";
+import image1 from "../../assets/keyboard-1.jpg";
+import image2 from "../../assets/keyboard-2.jpg";
+import image3 from "../../assets/keyboard-3.jpg";
+import image4 from "../../assets/keyboard-4.jpg";
+import image5 from "../../assets/keyboard-5.jpg";
+import image6 from "../../assets/keyboard-6.jpg";
+import image7 from "../../assets/keyboard-7.jpg";
+import image8 from "../../assets/keyboard-8.jpg";
+import image9 from "../../assets/keyboard-9.jpg";
 
 /**
  * Product Database can be added here.
@@ -29,64 +38,73 @@ export const products = [
   {
     _id: uuid(),
     title: "Cyber Moon Keyboard",
-    subTitle: "",
     price: "Rs. 26,296.63",
     categoryName: "Short Keyboards",
-    image: "",
+    image: image1,
     upcoming: false,
   },
   {
     _id: uuid(),
     title: "Hot-Swappable Keyboard",
-    subTitle: "",
     price: "Rs. 25,296.63",
     categoryName: "Custom Keyboards",
-    image: "",
+    image: image2,
+    upcoming: false,
+  },
+  {
+    _id: uuid(),
+    title: "Keychron K2 Keyboard",
+    price: "Rs. 8,299.00",
+    categoryName: "Compact Keyboards",
+    image: image3,
     upcoming: false,
   },
   {
     _id: uuid(),
     title: "Purple Midnight Keyboard",
-    subTitle: "",
     price: "Rs. 20,199.00",
     categoryName: "Short Keyboards",
-    image: "",
+    image: image4,
+    upcoming: false,
+  },
+  {
+    _id: uuid(),
+    title: "Mechanical Keyboards",
+    price: "Rs. 18,999.99",
+    categoryName: "Compact Keyboards",
+    image: image5,
     upcoming: false,
   },
   {
     _id: uuid(),
     title: "Preonic Keyboard MX Kit",
-    subTitle: "",
     price: "Rs. 25,499.00",
     categoryName: "Custom Keyboards",
-    image: "",
+    image: image6,
     upcoming: false,
   },
   {
     _id: uuid(),
     title: "Islay Night Keyboard",
-    subTitle: "",
     price: "Rs. 28,599.00",
     categoryName: "Custom Keyboards",
-    image: "",
+    image: image7,
     upcoming: false,
   },
   {
     _id: uuid(),
     title: "Zodiac Keyboard",
-    subTitle: "",
     price: "Rs. 26,999.00",
     categoryName: "Short Keyboards",
-    image: "",
+    image: image8,
     upcoming: false,
   },
   {
     _id: uuid(),
     title: "Split Keyboard",
-    subTitle: "",
     price: "Rs. 26,296.63",
     categoryName: "Split Keyboards",
-    image: "",
+    image: image9,
     upcoming: false,
   },
 ];

@@ -1,0 +1,23 @@
+.store-image {
+  width: 100%;
+  opacity: 0.8;
+  aspect-ratio: 5/3;
+}
+
+.store-image-content {
+  display: inline-block;
+  position: absolute;
+  top: 18em;
+  left: 21em;
+  right: 20em;
+  align-items: center;
+}
+
+.store-image-content h1 {
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.store-heading {
+  margin: 5rem 2rem;
+}

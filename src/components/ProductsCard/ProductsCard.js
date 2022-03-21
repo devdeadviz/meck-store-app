@@ -12,7 +12,7 @@ const ProductsCard = ({ title, image, price }) => {
       <div class="vertical-card-body my-4 mx-2">
         <div class="vertical-card-price-wrapper mt-2">
           <div class="mb-4 mx-2">
-            <span class="product-discount-price">{price}</span>
+            <span class="product-discount-price">Rs. {price}</span>
           </div>
         </div>
       </div>

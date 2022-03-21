@@ -49,12 +49,8 @@ const Homepage = () => {
       </h1>
       <div class="store-cards-wrapper flex flexWrap flexJustifyCenter m-5">
         {productCategories.map(({ categoryName, _id, image }) => (
-          <Link className="link" to="/products">
-            <CategoriesCard
-              key={_id}
-              categoryName={categoryName}
-              image={image}
-            />
+          <Link className="link" to="/products" key={_id}>
+            <CategoriesCard categoryName={categoryName} image={image} />
           </Link>
         ))}
       </div>

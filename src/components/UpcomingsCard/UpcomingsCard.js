@@ -22,7 +22,7 @@ const UpcomingsCard = ({ title, subTitle, price, image }) => {
         </div>
         <div className="horizontal-card-price-wrapper flex flexCol mt-4 mb-2 mx-4">
           <div>
-            <span className="product-discount-price">{price}</span>
+            <span className="product-discount-price">Rs. {price}</span>
           </div>
         </div>
         <div className="horizontal-card-footer mx-5 mb-5">

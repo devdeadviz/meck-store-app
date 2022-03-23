@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -7,32 +8,32 @@ const Navbar = () => {
         <div className="header-wrapper mt-2 ml-4">
           {/* <img className="logo" src="#" alt="" /> */}
           <h4>
-            <a className="header-heading" href="../../pages/Home/Homepage.js">
+            <Link className="header-heading" to="/">
               Meck Store
-            </a>
+            </Link>
           </h4>
         </div>
         <div className="header__nav">
           <nav>
             <ul className="flex flexAlignItemsCenter">
               <li>
-                <a href="#">
+                <Link to="/login">
                   <button type="button" className="btn btn-dark my-2 p-2 fs-6">
                     Login
                   </button>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="social-icons-wrapper pos-rel" href="#">
+                <Link className="social-icons-wrapper pos-rel" to="/wishlist">
                   <i className="fas fa-heart"></i>
                   <span className="badge-count icon-count-sm">0</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="social-icons-wrapper pos-rel" href="#">
+                <Link className="social-icons-wrapper pos-rel" to="/cart">
                   <i className="fas fa-shopping-cart"></i>
                   <span className="badge-count icon-count-sm">0</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

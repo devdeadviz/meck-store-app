@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
 import "./SignUp.css";
 
-// email, first name, last name, password & confirm password.
-
 const SignUp = () => {
   return (
     <>

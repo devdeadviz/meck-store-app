@@ -6,14 +6,14 @@
 
 /* Card styles */
 
-.vertical-card-wrapper {
+.login-card-wrapper {
   height: fit-content;
   width: 25rem;
   margin: 1rem;
   transition: 0.4s ease-in;
 }
 
-.vertical-card-wrapper:hover {
+.login-card-wrapper:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
@@ -46,7 +46,7 @@
   width: 100%;
 }
 
-/* Vertical Card Footer Style */
+/* login Card Footer Style */
 
 .text-decoration-none {
   color: var(--hyper-link-color);

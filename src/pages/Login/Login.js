@@ -7,7 +7,7 @@ const Login = () => {
     <>
       <Navbar />
       <section class="login-section flex flexAlignItemsCenter flexJustifyCenter">
-        <div class="vertical-card-wrapper box-shadow">
+        <div class="vertical-card-wrapper login-card-wrapper box-shadow">
           <div>
             <h2 class="m-4 text-center">Login</h2>
           </div>

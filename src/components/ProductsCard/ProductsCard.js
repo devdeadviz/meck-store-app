@@ -2,11 +2,11 @@ import "./ProductsCard.css";
 
 const ProductsCard = ({ title, image, price }) => {
   return (
-    <div class="vertical-card-wrapper">
+    <div class="vertical-card-wrapper product-card-wrapper">
       <div class="vertical-card-image-wrapper">
         <img class="responsive-image" src={image} alt={title} />
       </div>
-      <div class="vertical-card-header">
+      <div class="vertical-card-header product-card-header">
         <h2 class="my-3 mx-3">{title}</h2>
       </div>
       <div class="vertical-card-body my-4 mx-2">

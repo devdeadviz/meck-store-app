@@ -1,4 +1,4 @@
-.vertical-card-wrapper {
+.categories-card-wrapper {
   height: fit-content;
   width: 22rem;
   border-radius: 10px;
@@ -6,7 +6,7 @@
   transition: 0.4s ease-in;
 }
 
-.vertical-card-wrapper:hover {
+.categories-card-wrapper:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
@@ -18,6 +18,6 @@
   aspect-ratio: 5/3;
 }
 
-.vertical-card-badge-wrapper {
+.categories-card-badge-wrapper {
   border-radius: 10px;
 }

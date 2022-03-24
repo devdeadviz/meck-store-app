@@ -24,3 +24,7 @@ code {
   text-decoration: none;
   color: var(--primary-color);
 }
+
+fieldset {
+  border: none;
+}

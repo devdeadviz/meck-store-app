@@ -1,9 +1,15 @@
 import { Filter, Footer, Navbar, ProductsCard } from "../../components";
-import { useProducts } from "../../contexts/products-context";
+import { useProducts, useSortFilter } from "../../contexts";
+import { sortFunc } from "../../helpers/sortFunc";
 import "./ProductsListing.css";
 
 const ProductsListing = () => {
   const { products: availableProducts } = useProducts();
+  const { state } = useSortFilter();
+
+  const sortedProdData = sortFunc(availableProducts, state.sortBy);
+
+  console.log("Sortedd", sortedProdData);
 
   return (
     <>
@@ -14,11 +20,11 @@ const ProductsListing = () => {
           <div class="product-header">
             <h3 class="product-heading">
               Showing All Products
-              <small>( Showing {availableProducts.length} products )</small>
+              <small>( Showing {sortedProdData.length} products )</small>
             </h3>
           </div>
           <div class="product-listing-wrapper flex flexWrap flexJustifyCenter">
-            {availableProducts.map(
+            {sortedProdData.map(
               ({ title, image, price, upcoming, _id }) =>
                 !upcoming && (
                   <ProductsCard

@@ -1,0 +1,1 @@
+export { sortFunc } from "./sortFunc";

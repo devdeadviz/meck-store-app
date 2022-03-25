@@ -1,6 +1,9 @@
+import { useSortFilter } from "../../contexts";
 import "./Filter.css";
 
 const Filter = () => {
+  const { state, dispatch } = useSortFilter();
+
   return (
     <section class="store-filter">
       <div class="filter-header flex flexAlignContentCenter flexJustifyBetween">
@@ -123,6 +126,9 @@ const Filter = () => {
                 id="price-sort-1"
                 name="sortby"
                 value="lowtohigh"
+                onChange={() =>
+                  dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })
+                }
               />
               <label for="price-sort-1">Price - Low to High</label>
             </div>
@@ -133,6 +139,9 @@ const Filter = () => {
                 id="price-sort-2"
                 name="sortby"
                 value="hightolow"
+                onChange={() =>
+                  dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })
+                }
               />
               <label for="price-sort-2">Price - High to Low</label>
             </div>

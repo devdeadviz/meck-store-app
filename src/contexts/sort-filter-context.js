@@ -3,7 +3,13 @@ import { sortAndFilterReducer } from "../reducers";
 
 const initialSortFilterValue = {
   sortBy: null,
-  categories: {},
+  categories: {
+    compactKeyboards: false,
+    customKeyboards: false,
+    standardKeyboards: false,
+    splitKeyboards: false,
+    shortKeyboards: false,
+  },
   price: 40000,
 };
 

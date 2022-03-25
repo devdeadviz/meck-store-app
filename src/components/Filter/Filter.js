@@ -37,33 +37,61 @@ const Filter = () => {
       <div class="filter-category my-5">
         <h3 class="filter-heading">Category</h3>
         <form id="filter-category" action="#">
-          <fieldset className="fieldset" form="filter-category">
+          <fieldset form="filter-category">
             <div>
               <input
                 class="my-3 mr-2"
                 type="checkbox"
-                id="keyboard1"
-                value="StandardKeyboard"
+                id="compactkeyboard"
+                value="compactkeyboard"
+                checked={state.categories.compactKeyboards}
+                onChange={() => dispatch({ type: "COMPACT" })}
               />
-              <label for="keyboard1"> Standard Keyboard</label>
+              <label for="compactkeyboard"> Compact Keyboard</label>
             </div>
             <div>
               <input
                 class="my-3 mr-2"
                 type="checkbox"
-                id="keyboard2"
-                value="SplitKeyboard"
+                id="customkeyboard"
+                value="customkeyboard"
+                checked={state.categories.customKeyboards}
+                onChange={() => dispatch({ type: "CUSTOM" })}
               />
-              <label for="keyboard2"> Split Keyboard</label>
+              <label for="customkeyboard"> Custom Keyboard</label>
             </div>
             <div>
               <input
                 class="my-3 mr-2"
                 type="checkbox"
-                id="keyboard3"
-                value="CustomKeyboard"
+                id="standardkeyboard"
+                value="standardkeyboard"
+                checked={state.categories.standardKeyboards}
+                onChange={() => dispatch({ type: "STANDARD" })}
               />
-              <label for="keyboard3"> Custom Keyboard</label>
+              <label for="standardkeyboard"> Standard Keyboard</label>
+            </div>
+            <div>
+              <input
+                class="my-3 mr-2"
+                type="checkbox"
+                id="splitkeyboard"
+                value="splitkeyboard"
+                checked={state.categories.splitKeyboards}
+                onChange={() => dispatch({ type: "SPLIT" })}
+              />
+              <label for="splitkeyboard"> Split Keyboard</label>
+            </div>
+            <div>
+              <input
+                class="my-3 mr-2"
+                type="checkbox"
+                id="shortkeyboard"
+                value="shortkeyboard"
+                checked={state.categories.shortKeyboards}
+                onChange={() => dispatch({ type: "SHORT" })}
+              />
+              <label for="shortkeyboard"> Short Keyboard</label>
             </div>
           </fieldset>
         </form>
@@ -71,7 +99,7 @@ const Filter = () => {
       <div class="filter-rating my-5">
         <h3 class="filter-heading">Rating</h3>
         <form id="filter-rating" action="#">
-          <fieldset className="fieldset" form="filter-rating">
+          <fieldset form="filter-rating">
             <div>
               <input
                 class="my-3 mr-2"
@@ -118,7 +146,7 @@ const Filter = () => {
       <div class="filter-sort-by my-5">
         <h3 class="filter-heading">Sort By</h3>
         <form id="price-sort-by" action="#">
-          <fieldset className="fieldset" form="price-sort-by">
+          <fieldset form="price-sort-by">
             <div>
               <input
                 class="my-3 mr-2"
@@ -126,6 +154,7 @@ const Filter = () => {
                 id="price-sort-1"
                 name="sortby"
                 value="lowtohigh"
+                checked={state.sortBy === "LOW_TO_HIGH"}
                 onChange={() =>
                   dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })
                 }
@@ -139,6 +168,7 @@ const Filter = () => {
                 id="price-sort-2"
                 name="sortby"
                 value="hightolow"
+                checked={state.sortBy === "HIGH_TO_LOW"}
                 onChange={() =>
                   dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })
                 }

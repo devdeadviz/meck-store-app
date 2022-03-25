@@ -42,6 +42,8 @@ const sortAndFilterReducer = (state, action) => {
           shortKeyboards: !state.categories.shortKeyboards,
         },
       };
+    case "PRICE_SLIDER":
+      return { ...state, price: action.payload };
     default:
       return state;
   }

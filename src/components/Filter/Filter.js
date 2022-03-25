@@ -31,7 +31,10 @@ const Filter = () => {
           min="0"
           max="40000"
           step="10000"
-          value="40000"
+          value={state.price}
+          onChange={(e) =>
+            dispatch({ type: "PRICE_SLIDER", payload: e.target.value })
+          }
         />
       </div>
       <div class="filter-category my-5">

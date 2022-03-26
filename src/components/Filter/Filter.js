@@ -2,7 +2,21 @@ import { useSortFilter } from "../../contexts";
 import "./Filter.css";
 
 const Filter = () => {
-  const { state, dispatch } = useSortFilter();
+  const {
+    state: {
+      sortBy,
+      categories: {
+        compactKeyboards,
+        customKeyboards,
+        standardKeyboards,
+        splitKeyboards,
+        shortKeyboards,
+      },
+      price,
+      rating,
+    },
+    dispatch,
+  } = useSortFilter();
 
   return (
     <section class="store-filter">
@@ -35,7 +49,7 @@ const Filter = () => {
           min="0"
           max="40000"
           step="10000"
-          value={state.price}
+          value={price}
           onChange={(e) =>
             dispatch({ type: "PRICE_SLIDER", payload: e.target.value })
           }
@@ -51,7 +65,7 @@ const Filter = () => {
                 type="checkbox"
                 id="compactkeyboard"
                 value="compactkeyboard"
-                checked={state.categories.compactKeyboards}
+                checked={compactKeyboards}
                 onChange={() => dispatch({ type: "COMPACT" })}
               />
               <label for="compactkeyboard"> Compact Keyboard</label>
@@ -62,7 +76,7 @@ const Filter = () => {
                 type="checkbox"
                 id="customkeyboard"
                 value="customkeyboard"
-                checked={state.categories.customKeyboards}
+                checked={customKeyboards}
                 onChange={() => dispatch({ type: "CUSTOM" })}
               />
               <label for="customkeyboard"> Custom Keyboard</label>
@@ -73,7 +87,7 @@ const Filter = () => {
                 type="checkbox"
                 id="standardkeyboard"
                 value="standardkeyboard"
-                checked={state.categories.standardKeyboards}
+                checked={standardKeyboards}
                 onChange={() => dispatch({ type: "STANDARD" })}
               />
               <label for="standardkeyboard"> Standard Keyboard</label>
@@ -84,7 +98,7 @@ const Filter = () => {
                 type="checkbox"
                 id="splitkeyboard"
                 value="splitkeyboard"
-                checked={state.categories.splitKeyboards}
+                checked={splitKeyboards}
                 onChange={() => dispatch({ type: "SPLIT" })}
               />
               <label for="splitkeyboard"> Split Keyboard</label>
@@ -95,7 +109,7 @@ const Filter = () => {
                 type="checkbox"
                 id="shortkeyboard"
                 value="shortkeyboard"
-                checked={state.categories.shortKeyboards}
+                checked={shortKeyboards}
                 onChange={() => dispatch({ type: "SHORT" })}
               />
               <label for="shortkeyboard"> Short Keyboard</label>
@@ -114,7 +128,7 @@ const Filter = () => {
                 id="rating1"
                 name="rating"
                 value="4starandabove"
-                checked={state.rating === 4}
+                checked={rating === 4}
                 onChange={() => dispatch({ type: "RATING", payload: 4 })}
               />
               <label for="rating1">4 Stars & above</label>
@@ -126,7 +140,7 @@ const Filter = () => {
                 id="rating2"
                 name="rating"
                 value="3starandabove"
-                checked={state.rating === 3}
+                checked={rating === 3}
                 onChange={() => dispatch({ type: "RATING", payload: 3 })}
               />
               <label for="rating2">3 Stars & above</label>
@@ -138,7 +152,7 @@ const Filter = () => {
                 id="rating3"
                 name="rating"
                 value="2starandabove"
-                checked={state.rating === 2}
+                checked={rating === 2}
                 onChange={() => dispatch({ type: "RATING", payload: 2 })}
               />
               <label for="rating3">2 Stars & above</label>
@@ -150,7 +164,7 @@ const Filter = () => {
                 id="rating4"
                 name="rating"
                 value="1starandabove"
-                checked={state.rating === 1}
+                checked={rating === 1}
                 onChange={() => dispatch({ type: "RATING", payload: 1 })}
               />
               <label for="rating4">1 Stars & above</label>
@@ -169,7 +183,7 @@ const Filter = () => {
                 id="price-sort-1"
                 name="sortby"
                 value="lowtohigh"
-                checked={state.sortBy === "LOW_TO_HIGH"}
+                checked={sortBy === "LOW_TO_HIGH"}
                 onChange={() =>
                   dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })
                 }
@@ -183,7 +197,7 @@ const Filter = () => {
                 id="price-sort-2"
                 name="sortby"
                 value="hightolow"
-                checked={state.sortBy === "HIGH_TO_LOW"}
+                checked={sortBy === "HIGH_TO_LOW"}
                 onChange={() =>
                   dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })
                 }

@@ -2,7 +2,7 @@
 
 .store-filter {
   border-right: 2px solid var(--primary-color);
-  flex-basis: 45rem;
+  min-width: 18rem;
   padding: 2.2rem;
 }
 
@@ -19,8 +19,4 @@
 
 .filter-slider {
   width: 100%;
-}
-
-.fieldset {
-  border: none;
 }

@@ -6,14 +6,14 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <section class="login-section flex flexAlignItemsCenter flexJustifyCenter">
-        <div class="vertical-card-wrapper login-card-wrapper box-shadow">
+      <section className="login-section flex flexAlignItemsCenter flexJustifyCenter">
+        <div className="vertical-card-wrapper login-card-wrapper box-shadow">
           <div>
-            <h2 class="m-4 text-center">Login</h2>
+            <h2 className="m-4 text-center">Login</h2>
           </div>
-          <div class="vertical-card-body my-4 mx-3">
+          <div className="vertical-card-body my-4 mx-3">
             <form action="#">
-              <label for="email-input" class="my-3 py-5">
+              <label htmlFor="email-input" className="my-3 py-5">
                 Email address
               </label>
               <input
@@ -22,7 +22,7 @@ const Login = () => {
                 name="email"
                 placeholder="kuldeep@gmail.com"
               />
-              <label for="password-input" class="my-3">
+              <label htmlFor="password-input" className="my-3">
                 Password
               </label>
               <input
@@ -31,10 +31,10 @@ const Login = () => {
                 name="name"
                 placeholder="*********"
               />
-              <div class="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
-                <label for="remember">
+              <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
+                <label htmlFor="remember">
                   <input
-                    class="mr-2"
+                    className="mr-2"
                     type="checkbox"
                     id="remember"
                     name="rememberme"
@@ -42,20 +42,20 @@ const Login = () => {
                   />
                   Remember me
                 </label>
-                <Link class="text-decoration-none" to="#">
+                <Link className="text-decoration-none" to="#">
                   Forgot your password?
                 </Link>
               </div>
               <input
                 type="submit"
-                class="btn btn-primary submit-btn"
+                className="btn btn-primary submit-btn"
                 value="Submit"
               />
             </form>
           </div>
-          <div class="vertical-card-footer text-center my-5">
-            <Link class="text-decoration-none" to="/signup">
-              Create new Account <i class="fa-solid fa-right-long mx-2"></i>
+          <div className="vertical-card-footer text-center my-5">
+            <Link className="text-decoration-none" to="/signup">
+              Create new Account <i className="fa-solid fa-right-long mx-2"></i>
             </Link>
           </div>
         </div>

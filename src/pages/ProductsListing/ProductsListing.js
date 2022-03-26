@@ -1,6 +1,11 @@
 import { Filter, Footer, Navbar, ProductsCard } from "../../components";
 import { useProducts, useSortFilter } from "../../contexts";
-import { sortFunc, categoryFilterFunc, priceSliderFunc } from "../../helpers";
+import {
+  sortFunc,
+  categoryFilterFunc,
+  priceSliderFunc,
+  ratingFilterFunc,
+} from "../../helpers";
 import "./ProductsListing.css";
 
 const ProductsListing = () => {
@@ -19,6 +24,7 @@ const ProductsListing = () => {
     sortedFilteredProdData,
     state.price
   );
+  const ratedProdData = ratingFilterFunc(pricedProductData, state.rating);
 
   return (
     <>
@@ -29,11 +35,11 @@ const ProductsListing = () => {
           <div class="product-header">
             <h3 class="product-heading">
               Showing All Products
-              <small>( Showing {pricedProductData.length} products )</small>
+              <small>( Showing {ratedProdData.length} products )</small>
             </h3>
           </div>
           <div class="product-listing-wrapper flex flexWrap flexJustifyCenter">
-            {pricedProductData.map(
+            {ratedProdData.map(
               ({ title, image, price, upcoming, _id }) =>
                 !upcoming && (
                   <ProductsCard

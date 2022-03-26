@@ -11,6 +11,7 @@ const initialSortFilterValue = {
     shortKeyboards: false,
   },
   price: 40000,
+  rating: 0
 };
 
 const SortAndFilterContext = createContext(initialSortFilterValue);

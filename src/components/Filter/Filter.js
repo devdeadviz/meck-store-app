@@ -110,6 +110,8 @@ const Filter = () => {
                 id="rating1"
                 name="rating"
                 value="4starandabove"
+                checked={state.rating === 4}
+                onChange={() => dispatch({ type: "RATING", payload: 4 })}
               />
               <label for="rating1">4 Stars & above</label>
             </div>
@@ -120,6 +122,8 @@ const Filter = () => {
                 id="rating2"
                 name="rating"
                 value="3starandabove"
+                checked={state.rating === 3}
+                onChange={() => dispatch({ type: "RATING", payload: 3 })}
               />
               <label for="rating2">3 Stars & above</label>
             </div>
@@ -130,6 +134,8 @@ const Filter = () => {
                 id="rating3"
                 name="rating"
                 value="2starandabove"
+                checked={state.rating === 2}
+                onChange={() => dispatch({ type: "RATING", payload: 2 })}
               />
               <label for="rating3">2 Stars & above</label>
             </div>
@@ -140,6 +146,8 @@ const Filter = () => {
                 id="rating4"
                 name="rating"
                 value="1starandabove"
+                checked={state.rating === 1}
+                onChange={() => dispatch({ type: "RATING", payload: 1 })}
               />
               <label for="rating4">1 Stars & above</label>
             </div>

@@ -44,6 +44,8 @@ const sortAndFilterReducer = (state, action) => {
       };
     case "PRICE_SLIDER":
       return { ...state, price: action.payload };
+    case "RATING":
+      return { ...state, rating: action.payload };
     default:
       return state;
   }

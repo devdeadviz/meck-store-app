@@ -10,21 +10,17 @@ import "./ProductsListing.css";
 
 const ProductsListing = () => {
   const { products: availableProducts } = useProducts();
-  const { state } = useSortFilter();
+  const {
+    state: { sortBy, categories, price, rating },
+  } = useSortFilter();
 
   const categoryFilteredProdData = categoryFilterFunc(
     availableProducts,
-    state.categories
+    categories
   );
-  const sortedFilteredProdData = sortFunc(
-    categoryFilteredProdData,
-    state.sortBy
-  );
-  const pricedProductData = priceSliderFunc(
-    sortedFilteredProdData,
-    state.price
-  );
-  const ratedProdData = ratingFilterFunc(pricedProductData, state.rating);
+  const sortedFilteredProdData = sortFunc(categoryFilteredProdData, sortBy);
+  const pricedProductData = priceSliderFunc(sortedFilteredProdData, price);
+  const ratedProdData = ratingFilterFunc(pricedProductData, rating);
 
   return (
     <>
@@ -35,7 +31,7 @@ const ProductsListing = () => {
           <div class="product-header">
             <h3 class="product-heading">
               Showing All Products
-              <small>( Showing {ratedProdData.length} products )</small>
+              <small>( Showing {ratedProdData.length - 2} products )</small>
             </h3>
           </div>
           <div class="product-listing-wrapper flex flexWrap flexJustifyCenter">

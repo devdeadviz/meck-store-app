@@ -6,12 +6,12 @@ const SignUp = () => {
   return (
     <>
       <Navbar />
-      <section class="signup-section flex flexAlignItemsCenter flexJustifyCenter">
-        <div class="vertical-card-wrapper signup-card-wrapper box-shadow">
+      <section className="signup-section flex flexAlignItemsCenter flexJustifyCenter">
+        <div className="vertical-card-wrapper signup-card-wrapper box-shadow">
           <div>
-            <h2 class="m-4 text-center">SignUp</h2>
+            <h2 className="m-4 text-center">SignUp</h2>
           </div>
-          <div class="vertical-card-body my-4 mx-3">
+          <div className="vertical-card-body my-4 mx-3">
             <form id="signup-form" action="#">
               <fieldset form="signup-form">
                 <label for="first-name-input">First Name</label>
@@ -28,7 +28,7 @@ const SignUp = () => {
                   name="lastname"
                   placeholder="Gupta"
                 />
-                <label for="email-input" class="my-3 py-5">
+                <label for="email-input" className="my-3 py-5">
                   Email address
                 </label>
                 <input
@@ -37,7 +37,7 @@ const SignUp = () => {
                   name="email"
                   placeholder="kuldeep@gmail.com"
                 />
-                <label for="password-input" class="my-3">
+                <label for="password-input" className="my-3">
                   Password
                 </label>
                 <input
@@ -46,7 +46,7 @@ const SignUp = () => {
                   name="password"
                   placeholder="*********"
                 />
-                <label for="-confirm-password-input" class="my-3">
+                <label for="-confirm-password-input" className="my-3">
                   Confirm Password
                 </label>
                 <input
@@ -55,10 +55,10 @@ const SignUp = () => {
                   name="confirm-password"
                   placeholder="*********"
                 />
-                <div class="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
+                <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                   <label for="remember">
                     <input
-                      class="mr-2"
+                      className="mr-2"
                       type="checkbox"
                       id="remember"
                       name="rememberme"
@@ -69,16 +69,16 @@ const SignUp = () => {
                 </div>
                 <input
                   type="submit"
-                  class="btn btn-primary submit-btn"
+                  className="btn btn-primary submit-btn"
                   value="Create New Account"
                 />
               </fieldset>
             </form>
           </div>
-          <div class="vertical-card-footer text-center my-5">
-            <Link class="text-decoration-none" to="/login">
+          <div className="vertical-card-footer text-center my-5">
+            <Link className="text-decoration-none" to="/login">
               Already have an account
-              <i class="fa-solid fa-right-long mx-2"></i>
+              <i className="fa-solid fa-right-long mx-2"></i>
             </Link>
           </div>
         </div>

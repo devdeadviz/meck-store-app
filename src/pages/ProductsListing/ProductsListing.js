@@ -25,16 +25,16 @@ const ProductsListing = () => {
   return (
     <>
       <Navbar />
-      <section class="store-section flex">
+      <section className="store-section flex">
         <Filter />
-        <section class="store-product">
-          <div class="product-header">
-            <h3 class="product-heading">
+        <section className="store-product">
+          <div className="product-header">
+            <h3 className="product-heading">
               Showing All Products
               <small>( Showing {ratedProdData.length - 2} products )</small>
             </h3>
           </div>
-          <div class="product-listing-wrapper flex flexWrap flexJustifyCenter">
+          <div className="product-listing-wrapper flex flexWrap flexJustifyCenter">
             {ratedProdData.map(
               ({ title, image, price, upcoming, _id }) =>
                 !upcoming && (

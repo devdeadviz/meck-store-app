@@ -19,22 +19,22 @@ const Filter = () => {
   } = useSortFilter();
 
   return (
-    <section class="store-filter">
-      <div class="filter-header flex flexAlignContentCenter flexJustifyBetween">
-        <h3 class="filter-heading">Filters</h3>
+    <section className="store-filter">
+      <div className="filter-header flex flexAlignContentCenter flexJustifyBetween">
+        <h3 className="filter-heading">Filters</h3>
         <button
           type="button"
-          class="btn btn-outline-dark clear-btn"
+          className="btn btn-outline-dark clear-btn"
           onClick={() => dispatch({ type: "CLEAR" })}
         >
           Clear
         </button>
       </div>
-      <div class="filter-price my-5">
-        <h3 class="filter-heading">Price</h3>
+      <div className="filter-price my-5">
+        <h3 className="filter-heading">Price</h3>
         <datalist
           id="filter-slider-values"
-          class="flex flexJustifyBetween mt-4"
+          className="flex flexJustifyBetween mt-4"
         >
           <option value="0" label="0"></option>
           <option value="10000" label="10k"></option>
@@ -43,7 +43,7 @@ const Filter = () => {
           <option value="40000" label="40k"></option>
         </datalist>
         <input
-          class="filter-slider my-4"
+          className="filter-slider my-4"
           list="filter-slider-values"
           type="range"
           min="0"
@@ -55,13 +55,13 @@ const Filter = () => {
           }
         />
       </div>
-      <div class="filter-category my-5">
-        <h3 class="filter-heading">Category</h3>
+      <div className="filter-category my-5">
+        <h3 className="filter-heading">Category</h3>
         <form id="filter-category" action="#">
           <fieldset form="filter-category">
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="checkbox"
                 id="compactkeyboard"
                 value="compactkeyboard"
@@ -72,7 +72,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="checkbox"
                 id="customkeyboard"
                 value="customkeyboard"
@@ -83,7 +83,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="checkbox"
                 id="standardkeyboard"
                 value="standardkeyboard"
@@ -94,7 +94,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="checkbox"
                 id="splitkeyboard"
                 value="splitkeyboard"
@@ -105,7 +105,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="checkbox"
                 id="shortkeyboard"
                 value="shortkeyboard"
@@ -117,13 +117,13 @@ const Filter = () => {
           </fieldset>
         </form>
       </div>
-      <div class="filter-rating my-5">
-        <h3 class="filter-heading">Rating</h3>
+      <div className="filter-rating my-5">
+        <h3 className="filter-heading">Rating</h3>
         <form id="filter-rating" action="#">
           <fieldset form="filter-rating">
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="radio"
                 id="rating1"
                 name="rating"
@@ -135,7 +135,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="radio"
                 id="rating2"
                 name="rating"
@@ -147,7 +147,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="mt-2 mr-2"
+                className="mt-2 mr-2"
                 type="radio"
                 id="rating3"
                 name="rating"
@@ -159,7 +159,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="mt-4 mr-2"
+                className="mt-4 mr-2"
                 type="radio"
                 id="rating4"
                 name="rating"
@@ -172,13 +172,13 @@ const Filter = () => {
           </fieldset>
         </form>
       </div>
-      <div class="filter-sort-by my-5">
-        <h3 class="filter-heading">Sort By</h3>
+      <div className="filter-sort-by my-5">
+        <h3 className="filter-heading">Sort By</h3>
         <form id="price-sort-by" action="#">
           <fieldset form="price-sort-by">
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="radio"
                 id="price-sort-1"
                 name="sortby"
@@ -192,7 +192,7 @@ const Filter = () => {
             </div>
             <div>
               <input
-                class="my-3 mr-2"
+                className="my-3 mr-2"
                 type="radio"
                 id="price-sort-2"
                 name="sortby"

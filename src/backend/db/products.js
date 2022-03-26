@@ -24,6 +24,7 @@ export const products = [
     image:
       "https://www.meckeys.com/wp-content/uploads/2021/08/K2%E5%8F%AF%E6%8F%92%E6%8B%94%E9%93%9D%E5%90%88%E9%87%91-min-262x175.jpg",
     upcoming: true,
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -34,6 +35,7 @@ export const products = [
     image:
       "https://www.meckeys.com/wp-content/uploads/2021/03/K2-ALUM_RGB-262x175.jpeg",
     upcoming: true,
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -42,6 +44,7 @@ export const products = [
     categoryName: "shortKeyboards",
     image: image1,
     upcoming: false,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -50,6 +53,7 @@ export const products = [
     categoryName: "customKeyboards",
     image: image2,
     upcoming: false,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -58,6 +62,7 @@ export const products = [
     categoryName: "compactKeyboards",
     image: image3,
     upcoming: false,
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -66,6 +71,7 @@ export const products = [
     categoryName: "shortKeyboards",
     image: image4,
     upcoming: false,
+    rating: 3.5,
   },
   {
     _id: uuid(),
@@ -74,6 +80,7 @@ export const products = [
     categoryName: "compactKeyboards",
     image: image5,
     upcoming: false,
+    rating: 3,
   },
   {
     _id: uuid(),
@@ -82,6 +89,7 @@ export const products = [
     categoryName: "customKeyboards",
     image: image6,
     upcoming: false,
+    rating: 2,
   },
   {
     _id: uuid(),
@@ -90,6 +98,7 @@ export const products = [
     categoryName: "customKeyboards",
     image: image7,
     upcoming: false,
+    rating: 1,
   },
   {
     _id: uuid(),
@@ -98,6 +107,7 @@ export const products = [
     categoryName: "shortKeyboards",
     image: image8,
     upcoming: false,
+    rating: 3,
   },
   {
     _id: uuid(),
@@ -106,5 +116,6 @@ export const products = [
     categoryName: "splitKeyboards",
     image: image9,
     upcoming: false,
+    rating: 4,
   },
 ];

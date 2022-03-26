@@ -8,7 +8,11 @@ const Filter = () => {
     <section class="store-filter">
       <div class="filter-header flex flexAlignContentCenter flexJustifyBetween">
         <h3 class="filter-heading">Filters</h3>
-        <button type="button" class="btn btn-outline-dark clear-btn">
+        <button
+          type="button"
+          class="btn btn-outline-dark clear-btn"
+          onClick={() => dispatch({ type: "CLEAR" })}
+        >
           Clear
         </button>
       </div>

@@ -46,6 +46,21 @@ const sortAndFilterReducer = (state, action) => {
       return { ...state, price: action.payload };
     case "RATING":
       return { ...state, rating: action.payload };
+    case "CLEAR":
+      return {
+        ...state,
+        sortBy: null,
+        categories: {
+          ...state.categories,
+          compactKeyboards: false,
+          customKeyboards: false,
+          standardKeyboards: false,
+          splitKeyboards: false,
+          shortKeyboards: false,
+        },
+        price: 40000,
+        rating: 0,
+      };
     default:
       return state;
   }

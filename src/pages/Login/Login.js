@@ -13,7 +13,7 @@ const Login = () => {
           </div>
           <div className="vertical-card-body my-4 mx-3">
             <form action="#">
-              <label for="email-input" className="my-3 py-5">
+              <label htmlFor="email-input" className="my-3 py-5">
                 Email address
               </label>
               <input
@@ -22,7 +22,7 @@ const Login = () => {
                 name="email"
                 placeholder="kuldeep@gmail.com"
               />
-              <label for="password-input" className="my-3">
+              <label htmlFor="password-input" className="my-3">
                 Password
               </label>
               <input
@@ -32,7 +32,7 @@ const Login = () => {
                 placeholder="*********"
               />
               <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
-                <label for="remember">
+                <label htmlFor="remember">
                   <input
                     className="mr-2"
                     type="checkbox"

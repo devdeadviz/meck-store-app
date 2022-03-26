@@ -68,7 +68,7 @@ const Filter = () => {
                 checked={compactKeyboards}
                 onChange={() => dispatch({ type: "COMPACT" })}
               />
-              <label for="compactkeyboard"> Compact Keyboard</label>
+              <label htmlFor="compactkeyboard"> Compact Keyboard</label>
             </div>
             <div>
               <input
@@ -79,7 +79,7 @@ const Filter = () => {
                 checked={customKeyboards}
                 onChange={() => dispatch({ type: "CUSTOM" })}
               />
-              <label for="customkeyboard"> Custom Keyboard</label>
+              <label htmlFor="customkeyboard"> Custom Keyboard</label>
             </div>
             <div>
               <input
@@ -90,7 +90,7 @@ const Filter = () => {
                 checked={standardKeyboards}
                 onChange={() => dispatch({ type: "STANDARD" })}
               />
-              <label for="standardkeyboard"> Standard Keyboard</label>
+              <label htmlFor="standardkeyboard"> Standard Keyboard</label>
             </div>
             <div>
               <input
@@ -101,7 +101,7 @@ const Filter = () => {
                 checked={splitKeyboards}
                 onChange={() => dispatch({ type: "SPLIT" })}
               />
-              <label for="splitkeyboard"> Split Keyboard</label>
+              <label htmlFor="splitkeyboard"> Split Keyboard</label>
             </div>
             <div>
               <input
@@ -112,7 +112,7 @@ const Filter = () => {
                 checked={shortKeyboards}
                 onChange={() => dispatch({ type: "SHORT" })}
               />
-              <label for="shortkeyboard"> Short Keyboard</label>
+              <label htmlFor="shortkeyboard"> Short Keyboard</label>
             </div>
           </fieldset>
         </form>
@@ -131,7 +131,7 @@ const Filter = () => {
                 checked={rating === 4}
                 onChange={() => dispatch({ type: "RATING", payload: 4 })}
               />
-              <label for="rating1">4 Stars & above</label>
+              <label htmlFor="rating1">4 Stars & above</label>
             </div>
             <div>
               <input
@@ -143,7 +143,7 @@ const Filter = () => {
                 checked={rating === 3}
                 onChange={() => dispatch({ type: "RATING", payload: 3 })}
               />
-              <label for="rating2">3 Stars & above</label>
+              <label htmlFor="rating2">3 Stars & above</label>
             </div>
             <div>
               <input
@@ -155,7 +155,7 @@ const Filter = () => {
                 checked={rating === 2}
                 onChange={() => dispatch({ type: "RATING", payload: 2 })}
               />
-              <label for="rating3">2 Stars & above</label>
+              <label htmlFor="rating3">2 Stars & above</label>
             </div>
             <div>
               <input
@@ -167,7 +167,7 @@ const Filter = () => {
                 checked={rating === 1}
                 onChange={() => dispatch({ type: "RATING", payload: 1 })}
               />
-              <label for="rating4">1 Stars & above</label>
+              <label htmlFor="rating4">1 Stars & above</label>
             </div>
           </fieldset>
         </form>
@@ -188,7 +188,7 @@ const Filter = () => {
                   dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })
                 }
               />
-              <label for="price-sort-1">Price - Low to High</label>
+              <label htmlFor="price-sort-1">Price - Low to High</label>
             </div>
             <div>
               <input
@@ -202,7 +202,7 @@ const Filter = () => {
                   dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })
                 }
               />
-              <label for="price-sort-2">Price - High to Low</label>
+              <label htmlFor="price-sort-2">Price - High to Low</label>
             </div>
           </fieldset>
         </form>

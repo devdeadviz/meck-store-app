@@ -14,21 +14,21 @@ const SignUp = () => {
           <div className="vertical-card-body my-4 mx-3">
             <form id="signup-form" action="#">
               <fieldset form="signup-form">
-                <label for="first-name-input">First Name</label>
+                <label htmlFor="first-name-input">First Name</label>
                 <input
                   id="first-name-input"
                   type="text"
                   name="firstname"
                   placeholder="Kuldeep"
                 />
-                <label for="last-name-input">Last Name</label>
+                <label htmlFor="last-name-input">Last Name</label>
                 <input
                   id="last-name-input"
                   type="text"
                   name="lastname"
                   placeholder="Gupta"
                 />
-                <label for="email-input" className="my-3 py-5">
+                <label htmlFor="email-input" className="my-3 py-5">
                   Email address
                 </label>
                 <input
@@ -37,7 +37,7 @@ const SignUp = () => {
                   name="email"
                   placeholder="kuldeep@gmail.com"
                 />
-                <label for="password-input" className="my-3">
+                <label htmlFor="password-input" className="my-3">
                   Password
                 </label>
                 <input
@@ -46,7 +46,7 @@ const SignUp = () => {
                   name="password"
                   placeholder="*********"
                 />
-                <label for="-confirm-password-input" className="my-3">
+                <label htmlFor="-confirm-password-input" className="my-3">
                   Confirm Password
                 </label>
                 <input
@@ -56,7 +56,7 @@ const SignUp = () => {
                   placeholder="*********"
                 />
                 <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
-                  <label for="remember">
+                  <label htmlFor="remember">
                     <input
                       className="mr-2"
                       type="checkbox"

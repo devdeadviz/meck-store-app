@@ -1,8 +1,48 @@
 import { Link } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
 import "./SignUp.css";
+import { useReducer } from "react";
+import { signupReducer } from "../../reducers";
+import axios from "axios";
+import { useAuth } from "../../contexts";
 
 const SignUp = () => {
+  const { dispatch: authDispatch } = useAuth();
+
+  const [state, dispatch] = useReducer(signupReducer, {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const { firstName, lastName, email, password, confirmPassword } = state;
+
+  const signupHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/auth/signup", {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+
+      const { createdUser: user, encodedToken } = response.data
+
+      authDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
+      localStorage.setItem(
+        "foundUser",
+        JSON.stringify(user)
+      );
+      localStorage.setItem("token", encodedToken);
+      dispatch({ type: "CLEAR" });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -20,6 +60,10 @@ const SignUp = () => {
                   type="text"
                   name="firstname"
                   placeholder="Kuldeep"
+                  value={firstName}
+                  onChange={(e) =>
+                    dispatch({ type: "FIRST_NAME", payload: e.target.value })
+                  }
                 />
                 <label htmlFor="last-name-input">Last Name</label>
                 <input
@@ -27,6 +71,10 @@ const SignUp = () => {
                   type="text"
                   name="lastname"
                   placeholder="Gupta"
+                  value={lastName}
+                  onChange={(e) =>
+                    dispatch({ type: "LAST_NAME", payload: e.target.value })
+                  }
                 />
                 <label htmlFor="email-input" className="my-3 py-5">
                   Email address
@@ -36,6 +84,10 @@ const SignUp = () => {
                   id="email-input"
                   name="email"
                   placeholder="kuldeep@gmail.com"
+                  value={email}
+                  onChange={(e) =>
+                    dispatch({ type: "EMAIL", payload: e.target.value })
+                  }
                 />
                 <label htmlFor="password-input" className="my-3">
                   Password
@@ -45,6 +97,10 @@ const SignUp = () => {
                   id="password-input"
                   name="password"
                   placeholder="*********"
+                  value={password}
+                  onChange={(e) =>
+                    dispatch({ type: "PASSWORD", payload: e.target.value })
+                  }
                 />
                 <label htmlFor="-confirm-password-input" className="my-3">
                   Confirm Password
@@ -54,6 +110,13 @@ const SignUp = () => {
                   id="confirm-password-input"
                   name="confirm-password"
                   placeholder="*********"
+                  value={confirmPassword}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "CONFIRM_PASSWORD",
+                      payload: e.target.value,
+                    })
+                  }
                 />
                 <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                   <label htmlFor="remember">
@@ -71,6 +134,7 @@ const SignUp = () => {
                   type="submit"
                   className="btn btn-primary submit-btn"
                   value="Create New Account"
+                  onClick={signupHandler}
                 />
               </fieldset>
             </form>

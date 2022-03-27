@@ -16,13 +16,10 @@ const Login = () => {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
 
-      const { createdUser: user, encodedToken } = response.data;
+      const { foundUser: user, encodedToken } = response.data;
 
       dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
-      localStorage.setItem(
-        "foundUser",
-        JSON.stringify(user)
-      );
+      localStorage.setItem("foundUser", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
       setEmail("");
       setPassword("");

@@ -16,6 +16,11 @@ const Login = () => {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
       dispatch({ type: "LOGIN", payload: response.data });
+      localStorage.setItem(
+        "foundUser",
+        JSON.stringify(response.data.foundUser)
+      );
+      localStorage.setItem("token", response.data.encodedToken);
       setEmail("");
       setPassword("");
     } catch (error) {

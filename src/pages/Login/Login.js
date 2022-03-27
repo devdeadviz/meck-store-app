@@ -15,12 +15,15 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/auth/login", { email, password });
-      dispatch({ type: "LOGIN", payload: response.data });
+
+      const { createdUser: user, encodedToken } = response.data;
+
+      dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem(
         "foundUser",
-        JSON.stringify(response.data.foundUser)
+        JSON.stringify(user)
       );
-      localStorage.setItem("token", response.data.encodedToken);
+      localStorage.setItem("token", encodedToken);
       setEmail("");
       setPassword("");
     } catch (error) {

@@ -28,12 +28,15 @@ const SignUp = () => {
         email,
         password,
       });
-      authDispatch({ type: "SIGNUP", payload: response.data });
+
+      const { createdUser: user, encodedToken } = response.data
+
+      authDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem(
         "foundUser",
-        JSON.stringify(response.data.createdUser)
+        JSON.stringify(user)
       );
-      localStorage.setItem("token", response.data.encodedToken);
+      localStorage.setItem("token", encodedToken);
       dispatch({ type: "CLEAR" });
     } catch (error) {
       console.error(error);

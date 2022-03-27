@@ -1,8 +1,28 @@
 import { Link } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
+import { useState } from "react";
 import "./Login.css";
+import axios from "axios";
+import { useAuth } from "../../contexts";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { dispatch } = useAuth();
+
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/auth/login", { email, password });
+      dispatch({ type: "LOGIN", payload: response.data });
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -21,6 +41,8 @@ const Login = () => {
                 id="email-input"
                 name="email"
                 placeholder="kuldeep@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label htmlFor="password-input" className="my-3">
                 Password
@@ -30,6 +52,8 @@ const Login = () => {
                 id="password-input"
                 name="name"
                 placeholder="*********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                 <label htmlFor="remember">
@@ -50,6 +74,7 @@ const Login = () => {
                 type="submit"
                 className="btn btn-primary submit-btn"
                 value="Submit"
+                onClick={loginHandler}
               />
             </form>
           </div>

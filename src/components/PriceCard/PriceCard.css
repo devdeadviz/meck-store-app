@@ -1,0 +1,26 @@
+/* Card styles */
+
+.price-card-wrapper {
+  height: fit-content;
+  width: 22rem;
+  border-radius: 10px;
+  box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.19);
+  margin: 1rem 4rem;
+  transition: 0.4s ease-in;
+}
+
+.price-card-wrapper:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.price-card-header > h2 {
+  font-size: 1.5rem;
+}
+
+.order-btn {
+  font-size: 0.9rem;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

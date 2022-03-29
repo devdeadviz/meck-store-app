@@ -5,7 +5,7 @@ const PriceCard = () => {
   const { cartItems } = useCart();
 
   const amountCalculator = (accu, current) =>
-    (accu += current.price * current.qty);
+    (accu + current.price * current.qty);
 
   const amount = cartItems.reduce(amountCalculator, 0);
 
@@ -33,7 +33,7 @@ const PriceCard = () => {
           <div className="flex flexJustifyBetween mb-4">
             <span className="product-discount-price">TOTAL AMOUNT</span>
             <span className="ml-5">
-              Rs. {amount > 0 ? amount - amount * 0.1 + 500 : 0}
+              Rs. {amount > 0 ? (amount - amount * 0.1 + 500).toFixed(0) : 0}
             </span>
           </div>
         </div>

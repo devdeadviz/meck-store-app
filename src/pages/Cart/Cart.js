@@ -28,7 +28,16 @@ const Cart = () => {
         { action: { type: btnType } },
         { headers: { authorization: encodedToken } }
       );
-      setCartItems(response.data.cart);
+
+      const currentProduct = response.data.cart.find(
+        (e) => e._id === productId
+      );
+
+      if (currentProduct.qty < 1) {
+        removeFromCartHandler(productId);
+      } else {
+        setCartItems(response.data.cart);
+      }
     } catch (error) {
       console.error(error);
     }

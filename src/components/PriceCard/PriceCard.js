@@ -26,13 +26,15 @@ const PriceCard = () => {
         </div>
         <div className="flex flexJustifyBetween my-3">
           <span>Delivery Charges</span>
-          <span>Rs. 500</span>
+          <span>Rs. {amount > 0 ? 500 : 0} </span>
         </div>
         <hr />
         <div className="vertical-card-price-wrapper my-4">
           <div className="flex flexJustifyBetween mb-4">
             <span className="product-discount-price">TOTAL AMOUNT</span>
-            <span className="ml-5">Rs. {amount - amount * 0.1 + 500}</span>
+            <span className="ml-5">
+              Rs. {amount > 0 ? amount - amount * 0.1 + 500 : 0}
+            </span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import "./ProductsCard.css";
 
-const ProductsCard = ({ title, image, price }) => {
+const ProductsCard = ({ title, image, price, addToCartHandler }) => {
   return (
     <div className="vertical-card-wrapper product-card-wrapper">
       <div className="vertical-card-image-wrapper">
@@ -17,7 +17,11 @@ const ProductsCard = ({ title, image, price }) => {
         </div>
       </div>
       <div className="vertical-card-footer">
-        <button type="button" className="btn btn-primary add-btn my-4 mx-2">
+        <button
+          type="button"
+          className="btn btn-primary add-btn my-4 mx-2"
+          onClick={addToCartHandler}
+        >
           <i className="fas fa-shopping-cart mr-2"></i>
           Add to Cart
         </button>

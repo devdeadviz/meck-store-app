@@ -1,18 +1,26 @@
 import { Filter, Footer, Navbar, ProductsCard } from "../../components";
-import { useProducts, useSortFilter } from "../../contexts";
+import { useAuth, useCart, useProducts, useSortFilter } from "../../contexts";
 import {
   sortFunc,
   categoryFilterFunc,
   priceSliderFunc,
   ratingFilterFunc,
 } from "../../helpers";
+import axios from "axios";
 import "./ProductsListing.css";
 
 const ProductsListing = () => {
+  const {
+    state: { encodedToken },
+  } = useAuth();
+
   const { products: availableProducts } = useProducts();
+
   const {
     state: { sortBy, categories, price, rating },
   } = useSortFilter();
+
+  const { setCartItems } = useCart();
 
   const categoryFilteredProdData = categoryFilterFunc(
     availableProducts,
@@ -21,6 +29,23 @@ const ProductsListing = () => {
   const sortedFilteredProdData = sortFunc(categoryFilteredProdData, sortBy);
   const pricedProductData = priceSliderFunc(sortedFilteredProdData, price);
   const ratedProdData = ratingFilterFunc(pricedProductData, rating);
+
+  const addToCartHandler = async (product) => {
+    try {
+      const response = await axios.post(
+        "/api/user/cart",
+        { product },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      setCartItems(response.data.cart);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -43,6 +68,9 @@ const ProductsListing = () => {
                     title={title}
                     image={image}
                     price={price}
+                    addToCartHandler={() =>
+                      addToCartHandler({ title, image, price, _id })
+                    }
                   />
                 )
             )}

@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../contexts";
 import "./ProductsCard.css";
 
-const ProductsCard = ({ title, image, price }) => {
+const ProductsCard = ({ title, image, price, id, addToCartHandler }) => {
+  const { cartItems } = useCart();
+
+  const navigate = useNavigate();
+
   return (
     <div className="vertical-card-wrapper product-card-wrapper">
       <div className="vertical-card-image-wrapper">
@@ -17,10 +23,25 @@ const ProductsCard = ({ title, image, price }) => {
         </div>
       </div>
       <div className="vertical-card-footer">
-        <button type="button" className="btn btn-primary add-btn my-4 mx-2">
-          <i className="fas fa-shopping-cart mr-2"></i>
-          Add to Cart
-        </button>
+        {cartItems.find((e) => e._id === id) ? (
+          <button
+            type="button"
+            className="btn btn-primary add-btn my-4 mx-2"
+            onClick={() => navigate("/cart")}
+          >
+            <i className="fas fa-shopping-cart mr-2"></i>
+            View Cart
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-primary add-btn my-4 mx-2"
+            onClick={addToCartHandler}
+          >
+            <i className="fas fa-shopping-cart mr-2"></i>
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

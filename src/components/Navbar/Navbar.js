@@ -1,7 +1,10 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../contexts";
 
 const Navbar = () => {
+  const { cartItems } = useCart();
+
   return (
     <div>
       <header className="header">
@@ -32,7 +35,9 @@ const Navbar = () => {
               <li>
                 <Link className="social-icons-wrapper pos-rel" to="/cart">
                   <i className="fas fa-shopping-cart"></i>
-                  <span className="badge-count icon-count-sm">0</span>
+                  <span className="badge-count icon-count-sm">
+                    {cartItems.length}
+                  </span>
                 </Link>
               </li>
             </ul>

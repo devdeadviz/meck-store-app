@@ -29,8 +29,13 @@
   aspect-ratio: 5/3;
 }
 
-.add-btn {
+.add-btn, .wishlist-btn {
   font-size: 0.9rem;
   width: 95%;
   border-radius: 5px;
+}
+
+.wishlist-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
 }

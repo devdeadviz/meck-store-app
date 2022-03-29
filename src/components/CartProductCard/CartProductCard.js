@@ -1,6 +1,13 @@
 import "./CartProductCard.css";
 
-const CartProductCard = ({ title, price, image }) => {
+const CartProductCard = ({
+  title,
+  price,
+  image,
+  _id,
+  productsQuantityHandler,
+  qty,
+}) => {
   return (
     <div className="horizontal-card-wrapper cart-card-wrapper box-shadow flex">
       <div className="horizontal-card-image-wrapper cart-card-image-wrapper flex flexAlignItemsCenter">
@@ -17,9 +24,15 @@ const CartProductCard = ({ title, price, image }) => {
           <div className="product-quantity flex flexAlignItemsCenter my-2">
             <p>Quantity:</p>
             <div className="quantity-btn flex">
-              <i className="fas fa-minus"></i>
-              <input type="number" className="quantity-input" value="1" />
-              <i className="fas fa-plus"></i>
+              <i
+                className="fas fa-minus"
+                onClick={() => productsQuantityHandler(_id, "decrement")}
+              ></i>
+              <span className="quantity-input">{qty}</span>
+              <i
+                className="fas fa-plus"
+                onClick={() => productsQuantityHandler(_id, "increment")}
+              ></i>
             </div>
           </div>
         </div>

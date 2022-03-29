@@ -30,7 +30,7 @@ const CartProductCard = ({ title, price, image }) => {
           </button>
           <button
             type="button"
-            className="btn btn-outline-primary cart-wishlist-btn mt-4"
+            className="btn btn-outline-primary cart-wishlist-btn my-4"
           >
             <i className="fas fa-heart mr-2"></i>
             Move to Wishlist

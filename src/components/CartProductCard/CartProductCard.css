@@ -51,8 +51,8 @@
   padding: 1rem;
 }
 
-.quantity-btn > input {
-  border: none;
-  padding: 1rem;
-  width: 4rem;
+.quantity-input {
+  display: block;
+  margin: 0.6rem;
+  font-size: 20px;
 }

@@ -10,6 +10,18 @@ const Cart = () => {
     state: { encodedToken },
   } = useAuth();
 
+  const removeFromCartHandler = async (productId) => {
+    try {
+      const response = await axios.delete(
+        `/api/user/cart/${productId}`,
+        { headers: { authorization: encodedToken } }
+      );
+      setCartItems(response.data.cart);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   const productsQuantityHandler = async (productId, btnType) => {
     try {
       const response = await axios.post(
@@ -38,6 +50,7 @@ const Cart = () => {
               key={_id}
               qty={qty}
               productsQuantityHandler={productsQuantityHandler}
+              removeFromCartHandler={removeFromCartHandler}
             />
           ))}
         </section>

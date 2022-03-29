@@ -5,8 +5,9 @@ const CartProductCard = ({
   price,
   image,
   _id,
-  productsQuantityHandler,
   qty,
+  productsQuantityHandler,
+  removeFromCartHandler,
 }) => {
   return (
     <div className="horizontal-card-wrapper cart-card-wrapper box-shadow flex">
@@ -37,7 +38,11 @@ const CartProductCard = ({
           </div>
         </div>
         <div className="horizontal-card-footer my-1 mx-4">
-          <button type="button" className="btn btn-primary remove-btn">
+          <button
+            type="button"
+            className="btn btn-primary remove-btn"
+            onClick={() => removeFromCartHandler(_id)}
+          >
             <i className="fas fa-shopping-cart mr-2"></i>
             Remove from Cart
           </button>

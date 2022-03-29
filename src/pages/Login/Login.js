@@ -28,6 +28,26 @@ const Login = () => {
     }
   };
 
+  const guestLoginHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email: "kuldeepgupta@gmail.com",
+        password: "kuldeepgupta",
+      });
+
+      const { foundUser: user, encodedToken } = response.data;
+
+      dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
+      localStorage.setItem("foundUser", JSON.stringify(user));
+      localStorage.setItem("token", encodedToken);
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -75,12 +95,20 @@ const Login = () => {
                   Forgot your password?
                 </Link>
               </div>
-              <input
+              <button
                 type="submit"
                 className="btn btn-primary submit-btn"
-                value="Submit"
                 onClick={loginHandler}
-              />
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary submit-btn mt-4"
+                onClick={guestLoginHandler}
+              >
+                Login as Guest
+              </button>
             </form>
           </div>
           <div className="vertical-card-footer text-center my-5">

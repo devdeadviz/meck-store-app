@@ -1,0 +1,49 @@
+/* Card styles */
+
+.wishlist-card-wrapper {
+  height: fit-content;
+  width: 20rem;
+  border-radius: 10px;
+  box-shadow: 4px 6px 5px 0px rgba(0, 0, 0, 0.19);
+  margin: 1rem;
+  transition: 0.4s ease-in;
+}
+
+.wishlist-card-wrapper:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.wishlist-card-header > h2 {
+  font-size: 1.3rem;
+}
+
+.wishtlist-product-discount-price {
+  font-size: 1.2rem;
+}
+
+.responsive-image {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  aspect-ratio: 5/3;
+}
+
+.move-to-cart-btn {
+  font-size: 0.9rem;
+  width: 95%;
+  border-radius: 5px;
+}
+
+/* Wishlist icon style */
+
+.wishlist-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.wishlist-icon > i {
+  font-size: 1.8rem;
+  color: var(--wishlist-icon-color);
+}

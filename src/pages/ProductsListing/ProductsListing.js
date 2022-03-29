@@ -68,6 +68,7 @@ const ProductsListing = () => {
                     title={title}
                     image={image}
                     price={price}
+                    id={_id}
                     addToCartHandler={() =>
                       addToCartHandler({ title, image, price, _id })
                     }

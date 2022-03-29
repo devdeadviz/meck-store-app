@@ -12,15 +12,14 @@ const Cart = () => {
 
   const removeFromCartHandler = async (productId) => {
     try {
-      const response = await axios.delete(
-        `/api/user/cart/${productId}`,
-        { headers: { authorization: encodedToken } }
-      );
+      const response = await axios.delete(`/api/user/cart/${productId}`, {
+        headers: { authorization: encodedToken },
+      });
       setCartItems(response.data.cart);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   const productsQuantityHandler = async (productId, btnType) => {
     try {
@@ -38,7 +37,7 @@ const Cart = () => {
   return (
     <>
       <Navbar />
-      <h1 className="cart-heading text-center">MY CART (2)</h1>
+      <h1 className="cart-heading text-center">MY CART ({cartItems.length})</h1>
       <section className="flex flexJustifyCenter mb-5">
         <section className="flex flexCol flexAlignItemsCenter">
           {cartItems.map(({ title, price, image, _id, qty }) => (

@@ -47,6 +47,9 @@ const Cart = () => {
     <>
       <Navbar />
       <h1 className="cart-heading text-center">MY CART ({cartItems.length})</h1>
+      {cartItems.length < 1 && (
+        <h2 className="text-center my-4"> Your Cart Is Empty! </h2>
+      )}
       <section className="flex flexJustifyCenter mb-5">
         <section className="flex flexCol flexAlignItemsCenter">
           {cartItems.map(({ title, price, image, _id, qty }) => (
@@ -62,7 +65,7 @@ const Cart = () => {
             />
           ))}
         </section>
-        <PriceCard />
+        {cartItems.length > 0 && <PriceCard />}
       </section>
       <Footer />
     </>

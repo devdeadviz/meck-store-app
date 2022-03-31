@@ -45,6 +45,9 @@ const Wishlist = () => {
       <h1 className="wishlist-heading text-center">
         My Wishlist ({wishlistItems.length})
       </h1>
+      {wishlistItems.length < 1 && (
+        <h2 className="text-center my-4"> Your Wishlist Is Empty! </h2>
+      )}
       <section className="wishlist-card-container flex flexWrap">
         {wishlistItems.map(({ title, price, image, _id }) => (
           <WishlistCard

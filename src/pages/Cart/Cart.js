@@ -1,10 +1,11 @@
 import axios from "axios";
 import { CartProductCard, Footer, Navbar, PriceCard } from "../../components";
-import { useAuth, useCart } from "../../contexts";
+import { useAuth, useCart, useWishlist } from "../../contexts";
 import "./Cart.css";
 
 const Cart = () => {
   const { cartItems, setCartItems } = useCart();
+  const { setWishlistItems } = useWishlist();
 
   const {
     state: { encodedToken },
@@ -43,6 +44,20 @@ const Cart = () => {
     }
   };
 
+  const moveToWishlistHandler = async (product) => {
+    try {
+      const response = await axios.post(
+        "/api/user/wishlist",
+        { product },
+        { headers: { authorization: encodedToken } }
+      );
+      setWishlistItems(response.data.wishlist);
+      removeFromCartHandler(product._id);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -62,6 +77,7 @@ const Cart = () => {
               qty={qty}
               productsQuantityHandler={productsQuantityHandler}
               removeFromCartHandler={removeFromCartHandler}
+              moveToWishlistHandler={moveToWishlistHandler}
             />
           ))}
         </section>

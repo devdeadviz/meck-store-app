@@ -35,6 +35,11 @@
   border-radius: 5px;
 }
 
+.remove-from-wishlist-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
 /* Wishlist icon style */
 
 .wishlist-icon {

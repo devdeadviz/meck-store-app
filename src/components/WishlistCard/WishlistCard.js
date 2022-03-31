@@ -1,6 +1,13 @@
 import "./WishlistCard.css";
 
-const WishlistCard = ({ title, price, image, _id, moveToCartHandler }) => {
+const WishlistCard = ({
+  title,
+  price,
+  image,
+  _id,
+  moveToCartHandler,
+  removeFromWishlistHandler,
+}) => {
   return (
     <div className="vertical-card-wrapper wishlist-card-wrapper">
       <div className="vertical-card-image-wrapper pos-rel">
@@ -24,11 +31,18 @@ const WishlistCard = ({ title, price, image, _id, moveToCartHandler }) => {
       <div className="vertical-card-footer">
         <button
           type="button"
-          className="btn btn-primary add-btn move-to-cart-btn my-4 mx-2"
+          className="btn btn-primary add-btn move-to-cart-btn my-1 mx-2"
           onClick={moveToCartHandler}
         >
           <i className="fas fa-shopping-cart mr-2"></i>
           Move to Cart
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-primary add-btn remove-from-wishlist-btn my-2 mx-2"
+          onClick={() => removeFromWishlistHandler(_id)}
+        >
+          Remove From Wishlist
         </button>
       </div>
     </div>

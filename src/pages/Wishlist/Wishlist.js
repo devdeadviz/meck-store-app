@@ -4,7 +4,7 @@ import { useAuth, useCart, useWishlist } from "../../contexts";
 import "./Wishlist.css";
 
 const Wishlist = () => {
-  const { wishlistItems } = useWishlist();
+  const { wishlistItems, setWishlistItems } = useWishlist();
   const {
     state: { encodedToken },
   } = useAuth();
@@ -27,6 +27,17 @@ const Wishlist = () => {
     }
   };
 
+  const removeFromWishlistHandler = async (productId) => {
+    try {
+      const response = await axios.delete(`/api/user/wishlist/${productId}`, {
+        headers: { authorization: encodedToken },
+      });
+      setWishlistItems(response.data.wishlist);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -44,6 +55,7 @@ const Wishlist = () => {
             moveToCartHandler={() =>
               moveToCartHandler({ title, price, image, _id })
             }
+            removeFromWishlistHandler={removeFromWishlistHandler}
           />
         ))}
       </section>

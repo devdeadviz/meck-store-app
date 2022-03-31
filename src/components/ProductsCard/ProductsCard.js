@@ -33,7 +33,7 @@ const ProductsCard = ({
         {cartItems.find((e) => e._id === id) ? (
           <button
             type="button"
-            className="btn btn-primary add-btn my-4 mx-2"
+            className="btn btn-primary add-btn my-1 mx-2"
             onClick={() => navigate("/cart")}
           >
             <i className="fas fa-shopping-cart mr-2"></i>

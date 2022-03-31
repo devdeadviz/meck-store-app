@@ -22,6 +22,7 @@ const Wishlist = () => {
         }
       );
       setCartItems(response.data.cart);
+      removeFromWishlistHandler(product._id);
     } catch (error) {
       console.error(error);
     }

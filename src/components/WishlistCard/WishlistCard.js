@@ -1,6 +1,6 @@
 import "./WishlistCard.css";
 
-const WishlistCard = ({ title, price, image, _id }) => {
+const WishlistCard = ({ title, price, image, _id, moveToCartHandler }) => {
   return (
     <div className="vertical-card-wrapper wishlist-card-wrapper">
       <div className="vertical-card-image-wrapper pos-rel">
@@ -25,6 +25,7 @@ const WishlistCard = ({ title, price, image, _id }) => {
         <button
           type="button"
           className="btn btn-primary add-btn move-to-cart-btn my-4 mx-2"
+          onClick={moveToCartHandler}
         >
           <i className="fas fa-shopping-cart mr-2"></i>
           Move to Cart

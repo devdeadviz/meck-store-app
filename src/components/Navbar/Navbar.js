@@ -1,9 +1,10 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useCart } from "../../contexts";
+import { useCart, useWishlist } from "../../contexts";
 
 const Navbar = () => {
   const { cartItems } = useCart();
+  const { wishlistItems } = useWishlist();
 
   return (
     <div>
@@ -29,7 +30,9 @@ const Navbar = () => {
               <li>
                 <Link className="social-icons-wrapper pos-rel" to="/wishlist">
                   <i className="fas fa-heart"></i>
-                  <span className="badge-count icon-count-sm">0</span>
+                  <span className="badge-count icon-count-sm">
+                    {wishlistItems.length}
+                  </span>
                 </Link>
               </li>
               <li>

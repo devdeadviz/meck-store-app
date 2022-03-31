@@ -44,7 +44,7 @@ const Wishlist = () => {
       <h1 className="wishlist-heading text-center">
         My Wishlist ({wishlistItems.length})
       </h1>
-      <section className="wishlist-card-container flex flexWrap flexJustifyCenter">
+      <section className="wishlist-card-container flex flexWrap">
         {wishlistItems.map(({ title, price, image, _id }) => (
           <WishlistCard
             key={_id}

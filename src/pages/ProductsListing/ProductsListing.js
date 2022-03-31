@@ -1,5 +1,11 @@
 import { Filter, Footer, Navbar, ProductsCard } from "../../components";
-import { useAuth, useCart, useProducts, useSortFilter } from "../../contexts";
+import {
+  useAuth,
+  useCart,
+  useProducts,
+  useSortFilter,
+  useWishlist,
+} from "../../contexts";
 import {
   sortFunc,
   categoryFilterFunc,
@@ -10,17 +16,19 @@ import axios from "axios";
 import "./ProductsListing.css";
 
 const ProductsListing = () => {
-  const {
-    state: { encodedToken },
-  } = useAuth();
-
   const { products: availableProducts } = useProducts();
 
   const {
     state: { sortBy, categories, price, rating },
   } = useSortFilter();
 
+  const {
+    state: { encodedToken },
+  } = useAuth();
+
   const { setCartItems } = useCart();
+
+  const { setWishlistItems } = useWishlist();
 
   const categoryFilteredProdData = categoryFilterFunc(
     availableProducts,
@@ -42,6 +50,19 @@ const ProductsListing = () => {
         }
       );
       setCartItems(response.data.cart);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const addToWishlistHandler = async (product) => {
+    try {
+      const response = await axios.post(
+        "/api/user/wishlist",
+        { product },
+        { headers: { authorization: encodedToken } }
+      );
+      setWishlistItems(response.data.wishlist)
     } catch (error) {
       console.error(error);
     }
@@ -71,6 +92,9 @@ const ProductsListing = () => {
                     id={_id}
                     addToCartHandler={() =>
                       addToCartHandler({ title, image, price, _id })
+                    }
+                    addToWishlistHandler={() =>
+                      addToWishlistHandler({ title, image, price, _id })
                     }
                   />
                 )

@@ -2,7 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts";
 import "./ProductsCard.css";
 
-const ProductsCard = ({ title, image, price, id, addToCartHandler }) => {
+const ProductsCard = ({
+  title,
+  image,
+  price,
+  id,
+  addToCartHandler,
+  addToWishlistHandler,
+}) => {
   const { cartItems } = useCart();
 
   const navigate = useNavigate();
@@ -43,12 +50,13 @@ const ProductsCard = ({ title, image, price, id, addToCartHandler }) => {
           </button>
         )}
         <button
-            type="button"
-            className="btn btn-outline-primary wishlist-btn mb-4"
-          >
-            <i className="fas fa-heart mr-2"></i>
-            Move to Wishlist
-          </button>
+          type="button"
+          className="btn btn-outline-primary wishlist-btn mb-4"
+          onClick={addToWishlistHandler}
+        >
+          <i className="fas fa-heart mr-2"></i>
+          Move to Wishlist
+        </button>
       </div>
     </div>
   );

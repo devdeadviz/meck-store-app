@@ -1,10 +1,11 @@
 import axios from "axios";
 import { CartProductCard, Footer, Navbar, PriceCard } from "../../components";
-import { useAuth, useCart } from "../../contexts";
+import { useAuth, useCart, useWishlist } from "../../contexts";
 import "./Cart.css";
 
 const Cart = () => {
   const { cartItems, setCartItems } = useCart();
+  const { setWishlistItems } = useWishlist();
 
   const {
     state: { encodedToken },
@@ -43,10 +44,27 @@ const Cart = () => {
     }
   };
 
+  const moveToWishlistHandler = async (product) => {
+    try {
+      const response = await axios.post(
+        "/api/user/wishlist",
+        { product },
+        { headers: { authorization: encodedToken } }
+      );
+      setWishlistItems(response.data.wishlist);
+      removeFromCartHandler(product._id);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
       <h1 className="cart-heading text-center">MY CART ({cartItems.length})</h1>
+      {cartItems.length < 1 && (
+        <h2 className="text-center my-4"> Your Cart Is Empty! </h2>
+      )}
       <section className="flex flexJustifyCenter mb-5">
         <section className="flex flexCol flexAlignItemsCenter">
           {cartItems.map(({ title, price, image, _id, qty }) => (
@@ -59,10 +77,11 @@ const Cart = () => {
               qty={qty}
               productsQuantityHandler={productsQuantityHandler}
               removeFromCartHandler={removeFromCartHandler}
+              moveToWishlistHandler={moveToWishlistHandler}
             />
           ))}
         </section>
-        <PriceCard />
+        {cartItems.length > 0 && <PriceCard />}
       </section>
       <Footer />
     </>

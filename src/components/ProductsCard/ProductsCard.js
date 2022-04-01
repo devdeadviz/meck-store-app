@@ -2,7 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts";
 import "./ProductsCard.css";
 
-const ProductsCard = ({ title, image, price, id, addToCartHandler }) => {
+const ProductsCard = ({
+  title,
+  image,
+  price,
+  id,
+  addToCartHandler,
+  addToWishlistHandler,
+}) => {
   const { cartItems } = useCart();
 
   const navigate = useNavigate();
@@ -26,7 +33,7 @@ const ProductsCard = ({ title, image, price, id, addToCartHandler }) => {
         {cartItems.find((e) => e._id === id) ? (
           <button
             type="button"
-            className="btn btn-primary add-btn my-4 mx-2"
+            className="btn btn-primary add-btn my-1 mx-2"
             onClick={() => navigate("/cart")}
           >
             <i className="fas fa-shopping-cart mr-2"></i>
@@ -35,13 +42,21 @@ const ProductsCard = ({ title, image, price, id, addToCartHandler }) => {
         ) : (
           <button
             type="button"
-            className="btn btn-primary add-btn my-4 mx-2"
+            className="btn btn-primary add-btn my-1 mx-2"
             onClick={addToCartHandler}
           >
             <i className="fas fa-shopping-cart mr-2"></i>
             Add to Cart
           </button>
         )}
+        <button
+          type="button"
+          className="btn btn-outline-primary wishlist-btn mb-4"
+          onClick={addToWishlistHandler}
+        >
+          <i className="fas fa-heart mr-2"></i>
+          Move to Wishlist
+        </button>
       </div>
     </div>
   );

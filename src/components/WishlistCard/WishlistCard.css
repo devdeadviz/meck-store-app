@@ -1,6 +1,6 @@
-/* product card styles */
+/* Card styles */
 
-.product-card-wrapper {
+.wishlist-card-wrapper {
   height: fit-content;
   width: 20rem;
   border-radius: 10px;
@@ -9,16 +9,16 @@
   transition: 0.4s ease-in;
 }
 
-.product-card-wrapper:hover {
+.wishlist-card-wrapper:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
 
-.product-card-header > h2 {
+.wishlist-card-header > h2 {
   font-size: 1.3rem;
 }
 
-.product-discount-price {
+.wishtlist-product-discount-price {
   font-size: 1.2rem;
 }
 
@@ -29,13 +29,26 @@
   aspect-ratio: 5/3;
 }
 
-.add-btn, .wishlist-btn {
+.move-to-cart-btn {
   font-size: 0.9rem;
   width: 95%;
   border-radius: 5px;
 }
 
-.wishlist-btn:hover {
+.remove-from-wishlist-btn:hover {
   background-color: transparent;
   color: var(--primary-color);
+}
+
+/* Wishlist icon style */
+
+.wishlist-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.wishlist-icon > i {
+  font-size: 1.8rem;
+  color: var(--wishlist-icon-color);
 }

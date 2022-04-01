@@ -8,6 +8,7 @@ const CartProductCard = ({
   qty,
   productsQuantityHandler,
   removeFromCartHandler,
+  moveToWishlistHandler,
 }) => {
   return (
     <div className="horizontal-card-wrapper cart-card-wrapper box-shadow flex">
@@ -49,6 +50,7 @@ const CartProductCard = ({
           <button
             type="button"
             className="btn btn-outline-primary cart-wishlist-btn my-4"
+            onClick={() => moveToWishlistHandler({ title, image, price, _id })}
           >
             <i className="fas fa-heart mr-2"></i>
             Move to Wishlist

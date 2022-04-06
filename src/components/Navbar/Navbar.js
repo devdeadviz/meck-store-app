@@ -1,10 +1,19 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { useCart, useWishlist } from "../../contexts";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useCart, useWishlist } from "../../contexts";
 
 const Navbar = () => {
   const { cartItems } = useCart();
   const { wishlistItems } = useWishlist();
+  const {
+    state: { isAuth },
+  } = useAuth();
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.clear();
+    navigate(0);
+  };
 
   return (
     <div>
@@ -21,11 +30,24 @@ const Navbar = () => {
           <nav>
             <ul className="flex flexAlignItemsCenter">
               <li>
-                <Link to="/login">
-                  <button type="button" className="btn btn-dark my-2 p-2 fs-6">
-                    Login
+                {isAuth ? (
+                  <button
+                    type="button"
+                    className="btn btn-dark my-2 p-2 fs-6"
+                    onClick={logoutHandler}
+                  >
+                    LogOut
                   </button>
-                </Link>
+                ) : (
+                  <Link to="/login">
+                    <button
+                      type="button"
+                      className="btn btn-dark my-2 p-2 fs-6"
+                    >
+                      Login
+                    </button>
+                  </Link>
+                )}
               </li>
               <li>
                 <Link className="social-icons-wrapper pos-rel" to="/wishlist">

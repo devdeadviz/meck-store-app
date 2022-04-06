@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Filter, Footer, Navbar, ProductsCard } from "../../components";
 import {
   useAuth,
@@ -62,11 +63,15 @@ const ProductsListing = () => {
         { product },
         { headers: { authorization: encodedToken } }
       );
-      setWishlistItems(response.data.wishlist)
+      setWishlistItems(response.data.wishlist);
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

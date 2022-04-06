@@ -4,6 +4,7 @@ import { useReducer } from "react";
 import { signupReducer } from "../../reducers";
 import axios from "axios";
 import { useAuth } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 
 const SignUp = () => {
   const { dispatch: authDispatch } = useAuth();
@@ -20,6 +21,7 @@ const SignUp = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -41,8 +43,9 @@ const SignUp = () => {
       } else {
         navigate("/products");
       }
+      showToast("Account Created and Logged In!", "success");
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data.errors[0], "error");
     }
   };
 

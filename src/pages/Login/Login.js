@@ -3,14 +3,15 @@ import { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useAuth } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-
   const { dispatch } = useAuth();
+  const { showToast } = useToast();
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -27,8 +28,9 @@ const Login = () => {
       } else {
         navigate("/products");
       }
+      showToast("Logged In!", "success");
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data.errors[0], "error");
     }
   };
 
@@ -50,8 +52,9 @@ const Login = () => {
       } else {
         navigate("/products");
       }
+      showToast("Logged In!", "success");
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data.errors[0], "error");
     }
   };
 

@@ -10,6 +10,7 @@ import {
 } from "./pages";
 import { Footer, Navbar } from "./components";
 import { useAuth } from "./contexts";
+import { ToastContainer } from "react-toastify";
 
 function ProtectedRoutes() {
   const location = useLocation();
@@ -27,6 +28,15 @@ function ProtectedRoutes() {
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose="3000"
+        hideProgressBar="false"
+        closeOnClick="true"
+        pauseOnHover="true"
+        draggable="true"
+        progress="undefined"
+      />
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />

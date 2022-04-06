@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart, useWishlist } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 
 const Navbar = () => {
   const { cartItems } = useCart();
@@ -9,9 +10,11 @@ const Navbar = () => {
     state: { isAuth },
   } = useAuth();
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const logoutHandler = () => {
     localStorage.clear();
+    showToast("Logged Out!", "success")
     navigate(0);
   };
 

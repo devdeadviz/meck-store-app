@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Filter, Footer, Navbar, ProductsCard } from "../../components";
+import { Filter, ProductsCard } from "../../components";
 import {
   useAuth,
   useCart,
@@ -74,41 +74,37 @@ const ProductsListing = () => {
   }, []);
 
   return (
-    <>
-      <Navbar />
-      <section className="store-section flex">
-        <Filter />
-        <section className="store-product">
-          <div className="product-header">
-            <h3 className="product-heading">
-              Showing All Products
-              <small>( Showing {ratedProdData.length - 2} products )</small>
-            </h3>
-          </div>
-          <div className="product-listing-wrapper flex flexWrap flexJustifyCenter">
-            {ratedProdData.map(
-              ({ title, image, price, upcoming, _id }) =>
-                !upcoming && (
-                  <ProductsCard
-                    key={_id}
-                    title={title}
-                    image={image}
-                    price={price}
-                    id={_id}
-                    addToCartHandler={() =>
-                      addToCartHandler({ title, image, price, _id })
-                    }
-                    addToWishlistHandler={() =>
-                      addToWishlistHandler({ title, image, price, _id })
-                    }
-                  />
-                )
-            )}
-          </div>
-        </section>
+    <section className="store-section flex">
+      <Filter />
+      <section className="store-product">
+        <div className="product-header">
+          <h3 className="product-heading">
+            Showing All Products
+            <small>( Showing {ratedProdData.length - 2} products )</small>
+          </h3>
+        </div>
+        <div className="product-listing-wrapper flex flexWrap flexJustifyCenter">
+          {ratedProdData.map(
+            ({ title, image, price, upcoming, _id }) =>
+              !upcoming && (
+                <ProductsCard
+                  key={_id}
+                  title={title}
+                  image={image}
+                  price={price}
+                  id={_id}
+                  addToCartHandler={() =>
+                    addToCartHandler({ title, image, price, _id })
+                  }
+                  addToWishlistHandler={() =>
+                    addToWishlistHandler({ title, image, price, _id })
+                  }
+                />
+              )
+          )}
+        </div>
       </section>
-      <Footer />
-    </>
+    </section>
   );
 };
 

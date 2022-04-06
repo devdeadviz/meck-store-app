@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Footer, Navbar, WishlistCard } from "../../components";
+import { WishlistCard } from "../../components";
 import { useAuth, useCart, useWishlist } from "../../contexts";
 import "./Wishlist.css";
 
@@ -41,7 +41,6 @@ const Wishlist = () => {
 
   return (
     <>
-      <Navbar />
       <h1 className="wishlist-heading text-center">
         My Wishlist ({wishlistItems.length})
       </h1>
@@ -63,7 +62,6 @@ const Wishlist = () => {
           />
         ))}
       </section>
-      <Footer />
     </>
   );
 };

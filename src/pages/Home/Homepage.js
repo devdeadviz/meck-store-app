@@ -1,12 +1,7 @@
 import "./Homepage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {
-  CategoriesCard,
-  Footer,
-  Navbar,
-  UpcomingsCard,
-} from "../../components";
+import { CategoriesCard, UpcomingsCard } from "../../components";
 import { useProducts } from "../../contexts/products-context";
 import { Link } from "react-router-dom";
 
@@ -31,8 +26,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div>
-      <Navbar />
+    <>
       <div className="store-image-wrapper">
         <img
           className="store-image"
@@ -73,8 +67,7 @@ const Homepage = () => {
             )
         )}
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

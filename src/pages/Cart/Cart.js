@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CartProductCard, Footer, Navbar, PriceCard } from "../../components";
+import { CartProductCard, PriceCard } from "../../components";
 import { useAuth, useCart, useWishlist } from "../../contexts";
 import "./Cart.css";
 
@@ -60,7 +60,6 @@ const Cart = () => {
 
   return (
     <>
-      <Navbar />
       <h1 className="cart-heading text-center">MY CART ({cartItems.length})</h1>
       {cartItems.length < 1 && (
         <h2 className="text-center my-4"> Your Cart Is Empty! </h2>
@@ -83,7 +82,6 @@ const Cart = () => {
         </section>
         {cartItems.length > 0 && <PriceCard />}
       </section>
-      <Footer />
     </>
   );
 };

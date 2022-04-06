@@ -8,10 +8,12 @@ import {
   SignUp,
   Wishlist,
 } from "./pages";
+import { Footer, Navbar } from "./components";
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductsListing />} />
@@ -21,7 +23,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
-    </div>
+      <Footer />
+    </>
   );
 }
 

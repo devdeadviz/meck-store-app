@@ -1,13 +1,4 @@
 import { v4 as uuid } from "uuid";
-import image1 from "../../assets/keyboard-1.jpg";
-import image2 from "../../assets/keyboard-2.jpg";
-import image3 from "../../assets/keyboard-3.jpg";
-import image4 from "../../assets/keyboard-4.jpg";
-import image5 from "../../assets/keyboard-5.jpg";
-import image6 from "../../assets/keyboard-6.jpg";
-import image7 from "../../assets/keyboard-7.jpg";
-import image8 from "../../assets/keyboard-8.jpg";
-import image9 from "../../assets/keyboard-9.jpg";
 
 /**
  * Product Database can be added here.
@@ -42,7 +33,7 @@ export const products = [
     title: "Cyber Moon Keyboard",
     price: 26296,
     categoryName: "shortKeyboards",
-    image: image1,
+    image: "/assets/keyboard-1.jpg",
     upcoming: false,
     rating: 4,
   },
@@ -51,7 +42,7 @@ export const products = [
     title: "Hot-Swappable Keyboard",
     price: 25296,
     categoryName: "customKeyboards",
-    image: image2,
+    image: "/assets/keyboard-2.jpg",
     upcoming: false,
     rating: 4,
   },
@@ -60,7 +51,7 @@ export const products = [
     title: "Keychron K2 Keyboard",
     price: 8299,
     categoryName: "compactKeyboards",
-    image: image3,
+    image: "/assets/keyboard-3.jpg",
     upcoming: false,
     rating: 5,
   },
@@ -69,7 +60,7 @@ export const products = [
     title: "Purple Midnight Keyboard",
     price: 20199,
     categoryName: "shortKeyboards",
-    image: image4,
+    image: "/assets/keyboard-4.jpg",
     upcoming: false,
     rating: 3.5,
   },
@@ -78,7 +69,7 @@ export const products = [
     title: "Mechanical Keyboards",
     price: 18999,
     categoryName: "compactKeyboards",
-    image: image5,
+    image: "/assets/keyboard-5.jpg",
     upcoming: false,
     rating: 3,
   },
@@ -87,7 +78,7 @@ export const products = [
     title: "Preonic Keyboard MX Kit",
     price: 25499,
     categoryName: "customKeyboards",
-    image: image6,
+    image: "/assets/keyboard-6.jpg",
     upcoming: false,
     rating: 2,
   },
@@ -96,7 +87,7 @@ export const products = [
     title: "Islay Night Keyboard",
     price: 28599,
     categoryName: "customKeyboards",
-    image: image7,
+    image: "/assets/keyboard-7.jpg",
     upcoming: false,
     rating: 1,
   },
@@ -105,7 +96,7 @@ export const products = [
     title: "Zodiac Keyboard",
     price: 26999,
     categoryName: "shortKeyboards",
-    image: image8,
+    image: "/assets/keyboard-8.jpg",
     upcoming: false,
     rating: 3,
   },
@@ -114,7 +105,7 @@ export const products = [
     title: "Split Keyboard",
     price: 26296,
     categoryName: "splitKeyboards",
-    image: image9,
+    image: "/assets/keyboard-9.jpg",
     upcoming: false,
     rating: 4,
   },

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
   Cart,
@@ -9,6 +9,15 @@ import {
   Wishlist,
 } from "./pages";
 import { Footer, Navbar } from "./components";
+import { useAuth } from "./contexts";
+
+function ProtectedRoutes() {
+  const navigate = useNavigate();
+  const {
+    state: { isAuth },
+  } = useAuth();
+  return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
+}
 
 function App() {
   return (
@@ -20,8 +29,10 @@ function App() {
         <Route path="/mock" element={<Mockman />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+        </Route>
       </Routes>
       <Footer />
     </>

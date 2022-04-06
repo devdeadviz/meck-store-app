@@ -29,13 +29,10 @@ const SignUp = () => {
         password,
       });
 
-      const { createdUser: user, encodedToken } = response.data
+      const { createdUser: user, encodedToken } = response.data;
 
       authDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
-      localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-      );
+      localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
       dispatch({ type: "CLEAR" });
     } catch (error) {
@@ -52,7 +49,7 @@ const SignUp = () => {
             <h2 className="m-4 text-center">SignUp</h2>
           </div>
           <div className="vertical-card-body my-4 mx-3">
-            <form id="signup-form" action="#">
+            <form id="signup-form" action="#" onSubmit={signupHandler}>
               <fieldset form="signup-form">
                 <label htmlFor="first-name-input">First Name</label>
                 <input
@@ -64,6 +61,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     dispatch({ type: "FIRST_NAME", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="last-name-input">Last Name</label>
                 <input
@@ -75,6 +73,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     dispatch({ type: "LAST_NAME", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="email-input" className="my-3 py-5">
                   Email address
@@ -88,6 +87,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     dispatch({ type: "EMAIL", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="password-input" className="my-3">
                   Password
@@ -101,6 +101,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     dispatch({ type: "PASSWORD", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="-confirm-password-input" className="my-3">
                   Confirm Password
@@ -117,6 +118,7 @@ const SignUp = () => {
                       payload: e.target.value,
                     })
                   }
+                  required
                 />
                 <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                   <label htmlFor="remember">
@@ -130,12 +132,9 @@ const SignUp = () => {
                     I accept all Terms & Conditions
                   </label>
                 </div>
-                <input
-                  type="submit"
-                  className="btn btn-primary submit-btn"
-                  value="Create New Account"
-                  onClick={signupHandler}
-                />
+                <button type="submit" className="btn btn-primary submit-btn">
+                  Create New Account
+                </button>
               </fieldset>
             </form>
           </div>

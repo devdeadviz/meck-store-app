@@ -57,7 +57,7 @@ const Login = () => {
             <h2 className="m-4 text-center">Login</h2>
           </div>
           <div className="vertical-card-body my-4 mx-3">
-            <form action="#">
+            <form action="#" onSubmit={loginHandler}>
               <label htmlFor="email-input" className="my-3 py-5">
                 Email address
               </label>
@@ -68,6 +68,7 @@ const Login = () => {
                 placeholder="kuldeep@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
               <label htmlFor="password-input" className="my-3">
                 Password
@@ -79,6 +80,7 @@ const Login = () => {
                 placeholder="*********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                 <label htmlFor="remember">
@@ -98,7 +100,6 @@ const Login = () => {
               <button
                 type="submit"
                 className="btn btn-primary submit-btn"
-                onClick={loginHandler}
               >
                 Submit
               </button>

@@ -1,4 +1,4 @@
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
   Cart,
@@ -12,10 +12,16 @@ import { Footer, Navbar } from "./components";
 import { useAuth } from "./contexts";
 
 function ProtectedRoutes() {
+  const location = useLocation();
+
   const {
     state: { isAuth },
   } = useAuth();
-  return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
+  return isAuth ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" state={{ from: location }} replace />
+  );
 }
 
 function App() {

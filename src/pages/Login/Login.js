@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Login.css";
 import axios from "axios";
@@ -7,6 +7,8 @@ import { useAuth } from "../../contexts";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const { dispatch } = useAuth();
 
@@ -20,8 +22,11 @@ const Login = () => {
       dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
-      setEmail("");
-      setPassword("");
+      if (location.state !== null) {
+        navigate(location?.state?.from?.pathname);
+      } else {
+        navigate("/products");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -40,8 +45,11 @@ const Login = () => {
       dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
-      setEmail("");
-      setPassword("");
+      if (location.state !== null) {
+        navigate(location?.state?.from?.pathname);
+      } else {
+        navigate("/products");
+      }
     } catch (error) {
       console.error(error);
     }

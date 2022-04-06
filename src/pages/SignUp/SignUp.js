@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useReducer } from "react";
 import { signupReducer } from "../../reducers";
@@ -18,6 +18,9 @@ const SignUp = () => {
 
   const { firstName, lastName, email, password, confirmPassword } = state;
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const signupHandler = async (e) => {
     e.preventDefault();
     try {
@@ -33,7 +36,11 @@ const SignUp = () => {
       authDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
-      dispatch({ type: "CLEAR" });
+      if (location.state !== null) {
+        navigate(location?.state?.from?.pathname);
+      } else {
+        navigate("/products");
+      }
     } catch (error) {
       console.error(error);
     }

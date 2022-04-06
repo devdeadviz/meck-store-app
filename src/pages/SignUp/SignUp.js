@@ -33,7 +33,7 @@ const SignUp = () => {
 
       authDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem(
-        "foundUser",
+        "user",
         JSON.stringify(user)
       );
       localStorage.setItem("token", encodedToken);

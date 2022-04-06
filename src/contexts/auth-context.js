@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { authReducer } from "../reducers";
 
 const initialAuthValue = {
-  foundUser: "",
+  user: "",
   encodedToken: "",
 };
 

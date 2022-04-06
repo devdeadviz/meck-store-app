@@ -19,7 +19,7 @@ const Login = () => {
       const { foundUser: user, encodedToken } = response.data;
 
       dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
-      localStorage.setItem("foundUser", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
       setEmail("");
       setPassword("");
@@ -39,7 +39,7 @@ const Login = () => {
       const { foundUser: user, encodedToken } = response.data;
 
       dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
-      localStorage.setItem("foundUser", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", encodedToken);
       setEmail("");
       setPassword("");

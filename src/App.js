@@ -1,4 +1,4 @@
-import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
   Cart,
@@ -12,7 +12,6 @@ import { Footer, Navbar } from "./components";
 import { useAuth } from "./contexts";
 
 function ProtectedRoutes() {
-  const navigate = useNavigate();
   const {
     state: { isAuth },
   } = useAuth();

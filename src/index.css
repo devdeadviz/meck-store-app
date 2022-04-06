@@ -6,6 +6,11 @@
   --hyper-link-color: #3b82f6;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   color: var(--primary-color);
   font-family: "Merriweather", serif;

@@ -136,11 +136,18 @@ const SignUp = () => {
                   I accept all Terms & Conditions
                 </label>
               </div>
-              <button type="submit" className="btn btn-primary submit-btn">
+              <button
+                type="submit"
+                className="btn btn-primary submit-btn"
+                disabled={password !== confirmPassword}
+              >
                 Create New Account
               </button>
             </fieldset>
           </form>
+          {password !== confirmPassword && (
+            <p className="password-match my-4">Passwords don't match</p>
+          )}
         </div>
         <div className="vertical-card-footer text-center my-5">
           <Link className="text-decoration-none" to="/login">

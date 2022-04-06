@@ -43,3 +43,11 @@
 #confirm-password-input:focus {
   border: 2px solid var(--primary-color);
 }
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.password-match {
+  color: red;
+}

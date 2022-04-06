@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts";
+import { useCart, useWishlist } from "../../contexts";
 import "./ProductsCard.css";
 
 const ProductsCard = ({
@@ -11,6 +11,7 @@ const ProductsCard = ({
   addToWishlistHandler,
 }) => {
   const { cartItems } = useCart();
+  const { wishlistItems } = useWishlist()
 
   const navigate = useNavigate();
 
@@ -49,14 +50,23 @@ const ProductsCard = ({
             Add to Cart
           </button>
         )}
-        <button
+        {
+          wishlistItems.find(item => item._id === id) ? <button
+          type="button"
+          className="btn btn-outline-primary wishlist-btn mb-4"
+          onClick={() => navigate("/wishlist")}
+        >
+          <i className="fas fa-heart mr-2"></i>
+          View Wishlist
+        </button> : <button
           type="button"
           className="btn btn-outline-primary wishlist-btn mb-4"
           onClick={addToWishlistHandler}
         >
           <i className="fas fa-heart mr-2"></i>
-          Move to Wishlist
+          Add to Wishlist
         </button>
+        }
       </div>
     </div>
   );

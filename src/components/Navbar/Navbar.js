@@ -22,7 +22,7 @@ const Navbar = () => {
     <div>
       <header className="header">
         <div className="header-wrapper mt-2 ml-4">
-          {/* <img className="logo" src="#" alt="" /> */}
+          <img className="logo" src="/assets/logo.png" alt="Store Logo" />
           <h4>
             <Link className="header-heading" to="/">
               Meck Store
@@ -32,6 +32,16 @@ const Navbar = () => {
         <div className="header__nav">
           <nav>
             <ul className="flex flexAlignItemsCenter">
+              <li>
+               <Link to="/products">
+               <button
+                    type="button"
+                    className="btn btn-primary prod-btn my-2 mx-4 p-2 fs-6"
+                  >
+                    Products
+                  </button>
+               </Link>
+              </li>
               <li>
                 {isAuth ? (
                   <button

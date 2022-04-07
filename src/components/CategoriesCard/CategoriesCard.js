@@ -9,7 +9,7 @@ const CategoriesCard = ({ categoryName, image }) => {
           <div className="vertical-card-badge-wrapper categories-card-badge-wrapper py-1 px-4">New</div>
         </div>
         <div className="vertical-card-header">
-          <h2 className="m-2 py-3">{categoryName}</h2>
+          <h2 className="m-2 py-3">{categoryName} Keyboards</h2>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Standard Keyboards",
+    categoryName: "Standard",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image:
@@ -16,7 +16,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Short Keyboards",
+    categoryName: "Short",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image:
@@ -24,7 +24,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Compact Keyboards",
+    categoryName: "Compact",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image:
@@ -32,7 +32,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Custom Keyboards",
+    categoryName: "Custom",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image:
@@ -40,7 +40,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Split Keyboards",
+    categoryName: "Split",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image:

@@ -2,7 +2,7 @@ import "./UpcomingsCard.css";
 
 const UpcomingsCard = ({ title, subTitle, price, image }) => {
   return (
-    <div className="horizontal-card-wrapper flex m-5">
+    <div className="horizontal-card-wrapper upcoming-card-wrapper flex m-5">
       <div className="horizontal-card-image-wrapper flex flexAlignItemsCenter">
         <img className="responsive-image px-2" src={image} alt={title} />
       </div>
@@ -28,7 +28,7 @@ const UpcomingsCard = ({ title, subTitle, price, image }) => {
         <div className="horizontal-card-footer mx-5 mb-5">
           <button
             type="button"
-            className="btn btn-outline-primary wishlist-btn mt-4"
+            className="btn btn-outline-primary notify-btn mt-4"
           >
             <i className="fas fa-bell mr-2"></i>
             Get Notified

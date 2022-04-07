@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CategoriesCard, UpcomingsCard } from "../../components";
 import { useProducts } from "../../contexts/products-context";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSortFilter } from "../../contexts";
 
 const Homepage = () => {
@@ -12,6 +12,13 @@ const Homepage = () => {
   const [productCategories, setProductCategories] = useState([]);
 
   const { dispatch } = useSortFilter();
+  const navigate = useNavigate();
+
+  const navigateToProductListing = (categoryName) => {
+    dispatch({ type: "CLEAR" });
+    dispatch({ type: categoryName.toUpperCase() });
+    navigate("/products");
+  };
 
   useEffect(() => {
     (async () => {
@@ -50,14 +57,12 @@ const Homepage = () => {
       </h1>
       <div className="store-cards-wrapper flex flexWrap flexJustifyCenter m-5">
         {productCategories.map(({ categoryName, _id, image }) => (
-          <Link
-            className="link"
-            to="/products"
-            onClick={() => dispatch({ type: categoryName.toUpperCase() })}
+          <CategoriesCard
+            categoryName={categoryName}
+            image={image}
+            navigateToProductListing={navigateToProductListing}
             key={_id}
-          >
-            <CategoriesCard categoryName={categoryName} image={image} />
-          </Link>
+          />
         ))}
       </div>
       <h1 className="store-heading text-center">UPCOMINGS</h1>

@@ -88,7 +88,7 @@ const ProductsListing = () => {
             <small>( Showing {ratedProdData.length - 2} products )</small>
           </h3>
         </div>
-        <div className="product-listing-wrapper flex flexWrap flexJustifyCenter">
+        <div className="product-listing-wrapper flex flexWrap">
           {ratedProdData.map(
             ({ title, image, price, upcoming, _id }) =>
               !upcoming && (

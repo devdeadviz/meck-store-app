@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { CategoriesCard, UpcomingsCard } from "../../components";
 import { useProducts } from "../../contexts/products-context";
 import { Link } from "react-router-dom";
+import { useSortFilter } from "../../contexts";
 
 const Homepage = () => {
   const { products: upcomingProducts } = useProducts();
 
   const [productCategories, setProductCategories] = useState([]);
+
+  const { dispatch } = useSortFilter();
 
   useEffect(() => {
     (async () => {
@@ -47,7 +50,12 @@ const Homepage = () => {
       </h1>
       <div className="store-cards-wrapper flex flexWrap flexJustifyCenter m-5">
         {productCategories.map(({ categoryName, _id, image }) => (
-          <Link className="link" to="/products" key={_id}>
+          <Link
+            className="link"
+            to="/products"
+            onClick={() => dispatch({ type: categoryName.toUpperCase() })}
+            key={_id}
+          >
             <CategoriesCard categoryName={categoryName} image={image} />
           </Link>
         ))}

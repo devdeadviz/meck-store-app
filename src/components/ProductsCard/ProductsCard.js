@@ -7,18 +7,22 @@ const ProductsCard = ({
   image,
   price,
   id,
+  rating,
   addToCartHandler,
   addToWishlistHandler,
 }) => {
   const { cartItems } = useCart();
-  const { wishlistItems } = useWishlist()
+  const { wishlistItems } = useWishlist();
 
   const navigate = useNavigate();
 
   return (
     <div className="vertical-card-wrapper product-card-wrapper">
-      <div className="vertical-card-image-wrapper">
+      <div className="vertical-card-image-wrapper pos-rel">
         <img className="responsive-image" src={image} alt={title} />
+        <div className="vertical-card-badge-wrapper product-card-badge py-1 px-4">
+          {rating} <i class="fa-solid fa-star"></i>
+        </div>
       </div>
       <div className="vertical-card-header product-card-header">
         <h2 className="my-3 mx-3">{title}</h2>
@@ -50,23 +54,25 @@ const ProductsCard = ({
             Add to Cart
           </button>
         )}
-        {
-          wishlistItems.find(item => item._id === id) ? <button
-          type="button"
-          className="btn btn-outline-primary wishlist-btn mb-4"
-          onClick={() => navigate("/wishlist")}
-        >
-          <i className="fas fa-heart mr-2"></i>
-          View Wishlist
-        </button> : <button
-          type="button"
-          className="btn btn-outline-primary wishlist-btn mb-4"
-          onClick={addToWishlistHandler}
-        >
-          <i className="fas fa-heart mr-2"></i>
-          Add to Wishlist
-        </button>
-        }
+        {wishlistItems.find((item) => item._id === id) ? (
+          <button
+            type="button"
+            className="btn btn-outline-primary wishlist-btn mb-4"
+            onClick={() => navigate("/wishlist")}
+          >
+            <i className="fas fa-heart mr-2"></i>
+            View Wishlist
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-outline-primary wishlist-btn mb-4"
+            onClick={addToWishlistHandler}
+          >
+            <i className="fas fa-heart mr-2"></i>
+            Add to Wishlist
+          </button>
+        )}
       </div>
     </div>
   );

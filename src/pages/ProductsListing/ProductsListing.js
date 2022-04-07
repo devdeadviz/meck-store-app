@@ -92,13 +92,14 @@ const ProductsListing = () => {
           {ratedProdData.length < 1 && (
             <h3 className="my-5">No Products Available!</h3>
           )}
-          {ratedProdData.map(({ title, image, price, _id }) => (
+          {ratedProdData.map(({ title, image, price, _id, rating }) => (
             <ProductsCard
               key={_id}
               title={title}
               image={image}
               price={price}
               id={_id}
+              rating={rating}
               addToCartHandler={() =>
                 addToCartHandler({ title, image, price, _id })
               }

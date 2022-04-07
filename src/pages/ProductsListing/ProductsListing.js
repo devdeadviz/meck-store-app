@@ -15,6 +15,7 @@ import {
 } from "../../helpers";
 import axios from "axios";
 import "./ProductsListing.css";
+import { useToast } from "../../custom-hooks";
 
 const ProductsListing = () => {
   const { products: availableProducts } = useProducts();
@@ -30,6 +31,8 @@ const ProductsListing = () => {
   const { setCartItems } = useCart();
 
   const { setWishlistItems } = useWishlist();
+
+  const { showToast } = useToast();
 
   const categoryFilteredProdData = categoryFilterFunc(
     availableProducts,
@@ -51,8 +54,9 @@ const ProductsListing = () => {
         }
       );
       setCartItems(response.data.cart);
+      showToast("Item Added in the Cart!", "success");
     } catch (error) {
-      console.error(error);
+      showToast("You need to login first!", "warn");
     }
   };
 
@@ -64,8 +68,9 @@ const ProductsListing = () => {
         { headers: { authorization: encodedToken } }
       );
       setWishlistItems(response.data.wishlist);
+      showToast("Item Added in the Wishlist!", "success");
     } catch (error) {
-      console.error(error);
+      showToast("You need to login first!", "warn");
     }
   };
 

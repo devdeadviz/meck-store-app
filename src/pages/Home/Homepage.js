@@ -5,6 +5,7 @@ import { CategoriesCard, UpcomingsCard } from "../../components";
 import { useProducts } from "../../contexts/products-context";
 import { useNavigate } from "react-router-dom";
 import { useSortFilter } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 
 const Homepage = () => {
   const { products: upcomingProducts } = useProducts();
@@ -13,6 +14,7 @@ const Homepage = () => {
 
   const { dispatch } = useSortFilter();
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const navigateToProductListing = (categoryName) => {
     dispatch({ type: "CLEAR" });
@@ -26,7 +28,7 @@ const Homepage = () => {
         const productData = await axios.get("/api/categories");
         setProductCategories(productData.data.categories);
       } catch (error) {
-        console.error(error.message);
+        showToast(error.productData.data, "error");
       }
     })();
   }, []);

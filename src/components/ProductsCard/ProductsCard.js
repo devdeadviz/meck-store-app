@@ -21,7 +21,7 @@ const ProductsCard = ({
       <div className="vertical-card-image-wrapper pos-rel">
         <img className="responsive-image" src={image} alt={title} />
         <div className="vertical-card-badge-wrapper product-card-badge py-1 px-4">
-          {rating} <i class="fa-solid fa-star"></i>
+          {rating} <i className="fa-solid fa-star"></i>
         </div>
       </div>
       <div className="vertical-card-header product-card-header">

@@ -85,10 +85,11 @@ const ProductsListing = () => {
         <div className="product-header">
           <h3 className="product-heading">
             Showing All Products
-            <small>( Showing {ratedProdData.length - 2} products )</small>
+            <small>( Showing {ratedProdData.length > 2 ? ratedProdData.length - 2 : 0} products )</small>
           </h3>
         </div>
         <div className="product-listing-wrapper flex flexWrap">
+          { ratedProdData.length < 1 && <h3 className="my-5">No Products Available!</h3> }
           {ratedProdData.map(
             ({ title, image, price, upcoming, _id }) =>
               !upcoming && (

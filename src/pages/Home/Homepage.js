@@ -1,19 +1,24 @@
 import "./Homepage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {
-  CategoriesCard,
-  Footer,
-  Navbar,
-  UpcomingsCard,
-} from "../../components";
+import { CategoriesCard, UpcomingsCard } from "../../components";
 import { useProducts } from "../../contexts/products-context";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSortFilter } from "../../contexts";
 
 const Homepage = () => {
   const { products: upcomingProducts } = useProducts();
 
   const [productCategories, setProductCategories] = useState([]);
+
+  const { dispatch } = useSortFilter();
+  const navigate = useNavigate();
+
+  const navigateToProductListing = (categoryName) => {
+    dispatch({ type: "CLEAR" });
+    dispatch({ type: categoryName.toUpperCase() });
+    navigate("/products");
+  };
 
   useEffect(() => {
     (async () => {
@@ -26,9 +31,12 @@ const Homepage = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div>
-      <Navbar />
+    <>
       <div className="store-image-wrapper">
         <img
           className="store-image"
@@ -49,9 +57,12 @@ const Homepage = () => {
       </h1>
       <div className="store-cards-wrapper flex flexWrap flexJustifyCenter m-5">
         {productCategories.map(({ categoryName, _id, image }) => (
-          <Link className="link" to="/products" key={_id}>
-            <CategoriesCard categoryName={categoryName} image={image} />
-          </Link>
+          <CategoriesCard
+            categoryName={categoryName}
+            image={image}
+            navigateToProductListing={navigateToProductListing}
+            key={_id}
+          />
         ))}
       </div>
       <h1 className="store-heading text-center">UPCOMINGS</h1>
@@ -69,8 +80,7 @@ const Homepage = () => {
             )
         )}
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

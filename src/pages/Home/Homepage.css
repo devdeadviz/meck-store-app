@@ -4,6 +4,10 @@
   aspect-ratio: 5/3;
 }
 
+.store-cards-wrapper {
+  margin: 7rem 0;
+}
+
 .store-image-content {
   display: inline-block;
   position: absolute;

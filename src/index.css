@@ -1,9 +1,16 @@
+@import "react-toastify/dist/ReactToastify.min.css";
+
 :root {
   --primary-color: #000;
   --secondary-color: #fff;
   --wishlist-icon-color: #ff0000;
   --border-color: #d3d3d3;
   --hyper-link-color: #3b82f6;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {

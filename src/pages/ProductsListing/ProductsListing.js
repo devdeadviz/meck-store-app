@@ -1,4 +1,5 @@
-import { Filter, Footer, Navbar, ProductsCard } from "../../components";
+import { useEffect } from "react";
+import { Filter, ProductsCard } from "../../components";
 import {
   useAuth,
   useCart,
@@ -14,6 +15,7 @@ import {
 } from "../../helpers";
 import axios from "axios";
 import "./ProductsListing.css";
+import { useToast } from "../../custom-hooks";
 
 const ProductsListing = () => {
   const { products: availableProducts } = useProducts();
@@ -29,6 +31,8 @@ const ProductsListing = () => {
   const { setCartItems } = useCart();
 
   const { setWishlistItems } = useWishlist();
+
+  const { showToast } = useToast();
 
   const categoryFilteredProdData = categoryFilterFunc(
     availableProducts,
@@ -50,8 +54,9 @@ const ProductsListing = () => {
         }
       );
       setCartItems(response.data.cart);
+      showToast("Item Added in the Cart!", "success");
     } catch (error) {
-      console.error(error);
+      showToast("You need to login first!", "warn");
     }
   };
 
@@ -62,48 +67,50 @@ const ProductsListing = () => {
         { product },
         { headers: { authorization: encodedToken } }
       );
-      setWishlistItems(response.data.wishlist)
+      setWishlistItems(response.data.wishlist);
+      showToast("Item Added in the Wishlist!", "success");
     } catch (error) {
-      console.error(error);
+      showToast("You need to login first!", "warn");
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <>
-      <Navbar />
-      <section className="store-section flex">
-        <Filter />
-        <section className="store-product">
-          <div className="product-header">
-            <h3 className="product-heading">
-              Showing All Products
-              <small>( Showing {ratedProdData.length - 2} products )</small>
-            </h3>
-          </div>
-          <div className="product-listing-wrapper flex flexWrap flexJustifyCenter">
-            {ratedProdData.map(
-              ({ title, image, price, upcoming, _id }) =>
-                !upcoming && (
-                  <ProductsCard
-                    key={_id}
-                    title={title}
-                    image={image}
-                    price={price}
-                    id={_id}
-                    addToCartHandler={() =>
-                      addToCartHandler({ title, image, price, _id })
-                    }
-                    addToWishlistHandler={() =>
-                      addToWishlistHandler({ title, image, price, _id })
-                    }
-                  />
-                )
-            )}
-          </div>
-        </section>
+    <section className="store-section flex">
+      <Filter />
+      <section className="store-product">
+        <div className="product-header">
+          <h3 className="product-heading">
+            Showing All Products
+            <small>( Showing {ratedProdData.length} products )</small>
+          </h3>
+        </div>
+        <div className="product-listing-wrapper flex flexWrap">
+          {ratedProdData.length < 1 && (
+            <h3 className="my-5">No Products Available!</h3>
+          )}
+          {ratedProdData.map(({ title, image, price, _id, rating }) => (
+            <ProductsCard
+              key={_id}
+              title={title}
+              image={image}
+              price={price}
+              id={_id}
+              rating={rating}
+              addToCartHandler={() =>
+                addToCartHandler({ title, image, price, _id })
+              }
+              addToWishlistHandler={() =>
+                addToWishlistHandler({ title, image, price, _id })
+              }
+            />
+          ))}
+        </div>
       </section>
-      <Footer />
-    </>
+    </section>
   );
 };
 

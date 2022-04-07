@@ -1,6 +1,7 @@
 import axios from "axios";
-import { Footer, Navbar, WishlistCard } from "../../components";
+import { WishlistCard } from "../../components";
 import { useAuth, useCart, useWishlist } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 import "./Wishlist.css";
 
 const Wishlist = () => {
@@ -9,6 +10,7 @@ const Wishlist = () => {
     state: { encodedToken },
   } = useAuth();
   const { setCartItems } = useCart();
+  const { showToast } = useToast();
 
   const moveToCartHandler = async (product) => {
     try {
@@ -22,9 +24,10 @@ const Wishlist = () => {
         }
       );
       setCartItems(response.data.cart);
+      showToast("Item Moved to the Cart!", "success");
       removeFromWishlistHandler(product._id);
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data, "error");
     }
   };
 
@@ -34,14 +37,14 @@ const Wishlist = () => {
         headers: { authorization: encodedToken },
       });
       setWishlistItems(response.data.wishlist);
+      showToast("Item removed from the Wishlist!", "success");
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data, "error");
     }
   };
 
   return (
     <>
-      <Navbar />
       <h1 className="wishlist-heading text-center">
         My Wishlist ({wishlistItems.length})
       </h1>
@@ -63,7 +66,6 @@ const Wishlist = () => {
           />
         ))}
       </section>
-      <Footer />
     </>
   );
 };

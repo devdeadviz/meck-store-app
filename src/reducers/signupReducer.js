@@ -10,15 +10,6 @@ const signupReducer = (state, action) => {
       return { ...state, password: action.payload };
     case "CONFIRM_PASSWORD":
       return { ...state, confirmPassword: action.payload };
-    case "CLEAR":
-      return {
-        ...state,
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      };
     default:
       return state;
   }

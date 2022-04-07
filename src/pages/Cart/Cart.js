@@ -1,6 +1,7 @@
 import axios from "axios";
-import { CartProductCard, Footer, Navbar, PriceCard } from "../../components";
+import { CartProductCard, PriceCard } from "../../components";
 import { useAuth, useCart, useWishlist } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 import "./Cart.css";
 
 const Cart = () => {
@@ -10,6 +11,7 @@ const Cart = () => {
   const {
     state: { encodedToken },
   } = useAuth();
+  const {showToast} = useToast()
 
   const removeFromCartHandler = async (productId) => {
     try {
@@ -17,8 +19,9 @@ const Cart = () => {
         headers: { authorization: encodedToken },
       });
       setCartItems(response.data.cart);
+      showToast("Item removed from the Cart!", "success");
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data, "error");
     }
   };
 
@@ -40,7 +43,7 @@ const Cart = () => {
         setCartItems(response.data.cart);
       }
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data, "error");
     }
   };
 
@@ -52,20 +55,20 @@ const Cart = () => {
         { headers: { authorization: encodedToken } }
       );
       setWishlistItems(response.data.wishlist);
+      showToast("Item moved to the Wishlist!", "success");
       removeFromCartHandler(product._id);
     } catch (error) {
-      console.error(error);
+      showToast(error.response.data, "error");
     }
   };
 
   return (
     <>
-      <Navbar />
       <h1 className="cart-heading text-center">MY CART ({cartItems.length})</h1>
       {cartItems.length < 1 && (
         <h2 className="text-center my-4"> Your Cart Is Empty! </h2>
       )}
-      <section className="flex flexJustifyCenter mb-5">
+      <section className="cart-wrapper flex flexJustifyCenter mb-5">
         <section className="flex flexCol flexAlignItemsCenter">
           {cartItems.map(({ title, price, image, _id, qty }) => (
             <CartProductCard
@@ -83,7 +86,6 @@ const Cart = () => {
         </section>
         {cartItems.length > 0 && <PriceCard />}
       </section>
-      <Footer />
     </>
   );
 };
